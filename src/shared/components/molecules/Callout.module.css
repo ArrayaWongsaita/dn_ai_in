@@ -1,0 +1,1 @@
+.callout { display: grid; gap: var(--gap-sm); justify-items: start; padding: var(--gap-md) var(--gap-lg); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; background: color-mix(in srgb, var(--accent) 6%, var(--bg)); }

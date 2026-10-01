@@ -1,0 +1,5 @@
+.item { border-top: 1px solid var(--line); }
+.item:last-child { border-bottom: 1px solid var(--line); }
+.row { display: flex; gap: 1.5rem; align-items: baseline; padding: 1rem 0; }
+.n { color: var(--accent); font-variant-numeric: tabular-nums; font-weight: 600; }
+.summary { display: block; color: var(--muted); font-size: 0.7em; }

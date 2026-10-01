@@ -1,0 +1,4 @@
+.big {
+  font: 600 var(--fs-big)/1.1 var(--font-sans);
+  color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -0.03em;
+}

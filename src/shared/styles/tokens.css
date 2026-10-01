@@ -1,0 +1,23 @@
+/* Design tokens — the ONLY place raw colors / sizes live. Rationale: design.md, docs/research.md §5.
+   Contrast (text on --bg): fg 13:1 · muted ≥6:1 · accent ≥6:1. Never use #000/#fff. */
+:root {
+  --bg: #f7f5f0; --fg: #2b2a26; --muted: #5e5b52; --accent: #6b3fc0; --line: #2b2a2622;
+
+  --font-sans: "Noto Sans Thai", "Sarabun", system-ui, sans-serif;
+  --fs-body: clamp(18px, 1.6vw, 24px);
+  --fs-label: 1.35em;
+  --fs-small: 0.75em;
+  --fs-title: clamp(30px, 5vw, 72px);
+  --fs-display: clamp(40px, 7vw, 96px);
+  --fs-big: clamp(96px, 24vw, 340px);
+  --lh-body: 1.8;
+
+  --gutter: clamp(24px, 10vw, 160px);
+  --gap-sm: 0.5rem; --gap-md: 1rem; --gap-lg: 2rem;
+  --radius: 8px; --radius-pill: 999px;
+  --dur: 0.5s;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1c1d1f; --fg: #e4e2da; --muted: #a3a197; --accent: #b69cf5; --line: #e4e2da22; }
+}
+:root[data-theme="dark"] { --bg: #1c1d1f; --fg: #e4e2da; --muted: #a3a197; --accent: #b69cf5; --line: #e4e2da22; }

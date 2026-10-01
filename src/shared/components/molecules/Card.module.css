@@ -1,0 +1,2 @@
+.card { display: grid; gap: var(--gap-sm); justify-items: start; padding: var(--gap-lg); border: 1px solid var(--line); border-radius: var(--radius); }
+.title { margin: 0; font-size: 1em; font-weight: 600; color: var(--fg); }

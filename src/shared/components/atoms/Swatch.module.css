@@ -1,0 +1,2 @@
+.swatch { padding: 1rem 1.5rem; border-radius: var(--radius); font-size: 1.1em; border: 1px solid var(--line); }
+.swatch small { display: block; font-size: 0.65em; opacity: 0.75; }

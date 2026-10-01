@@ -1,0 +1,3 @@
+.body { white-space: pre-line; }
+.muted { color: var(--muted); white-space: pre-line; }
+.label { font-size: var(--fs-label); max-width: 30ch; white-space: pre-line; }

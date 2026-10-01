@@ -1,0 +1,10 @@
+.stage { display: flex; align-items: center; gap: var(--gap-md); }
+.track { position: relative; flex: 1; min-width: 6rem; height: 3rem; }
+.track::before { content: ''; position: absolute; inset: 50% 0 auto; border-top: 2px dashed var(--line); }
+.page { display: grid; gap: 0.35rem; margin-top: auto; opacity: 0; }
+.page i { display: block; height: 0.4rem; border-radius: 2px; background: var(--muted); }
+.code { font-weight: 600; color: var(--accent); }
+.work { margin-top: auto; height: 0.4rem; border-radius: 2px; background: var(--line); overflow: hidden; }
+.work > div { height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+/* reserve two lines so the controls don't jump between steps */
+.caption { min-height: calc(2 * 1.35em * var(--lh-body)); }

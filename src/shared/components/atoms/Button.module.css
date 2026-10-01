@@ -1,0 +1,17 @@
+.button {
+  display: inline-flex; align-items: center; gap: var(--gap-sm); font: inherit; line-height: 1.6; text-decoration: none;
+  border: 1px solid transparent; border-radius: var(--radius); cursor: pointer;
+  transition: background var(--dur), color var(--dur), border-color var(--dur);
+}
+.md { font-size: 0.9em; padding: 0.5rem 1.25rem; }
+.sm { font-size: 0.75em; padding: 0.25rem 0.8rem; }
+/* filled purple: --bg text on --accent ≥ 6:1 in both themes */
+.primary { background: var(--accent); color: var(--bg); }
+.primary:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 85%, var(--fg)); }
+.secondary { background: transparent; color: var(--accent); border-color: var(--accent); }
+.secondary:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 10%, var(--bg)); }
+.ghost { background: transparent; color: var(--fg); }
+.ghost:hover:not(:disabled) { background: color-mix(in srgb, var(--fg) 8%, var(--bg)); }
+.button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.button:disabled { opacity: 0.5; cursor: not-allowed; }
+@media (prefers-reduced-motion: reduce) { .button { transition: none; } }

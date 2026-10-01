@@ -1,0 +1,1 @@
+.nav { position: fixed; right: 1rem; top: 50%; translate: 0 -50%; display: grid; gap: 10px; z-index: 1; }

@@ -1,0 +1,18 @@
+.packet {
+  position: absolute; top: 50%; left: 0; translate: 0 -50%; opacity: 0;
+  white-space: nowrap; font-size: 0.7em; line-height: 1.6; padding: 0.15rem 0.8rem;
+  border-radius: var(--radius-pill); border: 2px solid var(--accent);
+}
+.request { background: var(--bg); color: var(--fg); }
+.response { background: var(--accent); color: var(--bg); }
+/* speed streak behind the packet; scaleX 0→1 while it "runs" */
+.trail {
+  position: absolute; right: 100%; top: 50%; width: 4rem; height: 3px; translate: 0 -50%;
+  background: linear-gradient(to left, var(--accent), transparent); transform-origin: right center; transform: scaleX(0);
+}
+/* the response runs right → left, so its streak trails on the right */
+.response .trail {
+  right: auto; left: 100%;
+  background: linear-gradient(to right, var(--accent), transparent);
+  transform-origin: left center;
+}

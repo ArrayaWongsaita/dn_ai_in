@@ -1,0 +1,4 @@
+.stack { display: flex; flex-direction: column; }
+.sm { gap: var(--gap-sm); }
+.md { gap: var(--gap-md); }
+.lg { gap: var(--gap-lg); }

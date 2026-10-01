@@ -1,0 +1,5 @@
+.frame { scroll-snap-align: start; }
+.frame > * { opacity: 0; transform: translateY(12px); transition: opacity var(--dur), transform var(--dur); }
+.seen > * { opacity: 1; transform: none; }
+.footer { position: absolute; left: var(--gutter); bottom: 1.5rem; }
+@media (prefers-reduced-motion: reduce) { .frame > * { opacity: 1; transform: none; transition: none; } }

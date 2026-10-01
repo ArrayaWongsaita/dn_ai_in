@@ -1,0 +1,10 @@
+* { box-sizing: border-box; margin: 0; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 var(--fs-body)/var(--lh-body) var(--font-sans);
+  transition: background 0.2s, color 0.2s;
+}
+/* Decks opt in to scroll-snap by rendering an element with [data-deck]. */
+html:has([data-deck]) { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html:has([data-deck]) { scroll-behavior: auto; } }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

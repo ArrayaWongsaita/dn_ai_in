@@ -1,0 +1,16 @@
+import type { SlideData } from '@/shared/types/slide'
+import { CompareSlide } from './CompareSlide'
+import { CoverSlide } from './CoverSlide'
+import { StatSlide } from './StatSlide'
+import { StatementSlide } from './StatementSlide'
+
+/** SlideData → template. The `never` check makes a missing case a compile error. */
+export function SlideRenderer({ slide }: { slide: SlideData }) {
+  switch (slide.type) {
+    case 'cover': return <CoverSlide {...slide} />
+    case 'stat': return <StatSlide {...slide} />
+    case 'statement': return <StatementSlide {...slide} />
+    case 'compare': return <CompareSlide {...slide} />
+    default: { const _exhaustive: never = slide; return _exhaustive }
+  }
+}
