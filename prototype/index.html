@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สร้างเว็บที่คนใช้ได้จริง</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="theme" type="button" aria-label="สลับธีมสว่าง/มืด">ธีม</button>
+<nav aria-label="สไลด์"></nav>
+
+<section class="slide">
+  <h1>สร้างเว็บที่<br>คนใช้ได้จริง</h1>
+  <p>เลื่อนลงเพื่อเริ่ม ↓</p>
+</section>
+
+<section class="slide">
+  <p class="big" data-count-to="25" data-suffix="%">25%</p>
+  <p class="label">ของข้อความที่ผู้ใช้อ่านจริงในหนึ่งหน้า — ที่เหลือคือการสแกน</p>
+  <p class="src">Nielsen Norman Group</p>
+</section>
+
+<section class="slide">
+  <p class="big" data-count-to="2.5" data-decimals="1" data-suffix="s">2.5s</p>
+  <p class="label">เวลาที่ LCP ควรเสร็จ · INP ≤ 200ms · CLS ≤ 0.1</p>
+  <p class="src">web.dev · Core Web Vitals</p>
+</section>
+
+<section class="slide">
+  <p class="big" data-count-to="7" data-prefix="−" data-suffix="%">−7%</p>
+  <p class="label">conversion ต่อทุก 1 วินาทีที่ช้าลง</p>
+  <p class="src">Conductor · รวม case study</p>
+</section>
+
+<section class="slide">
+  <p class="big" data-count-to="53" data-suffix="%">53%</p>
+  <p class="label">ของผู้ใช้มือถือละทิ้งหน้าที่โหลดเกิน 3 วินาที</p>
+  <p class="src">web.dev</p>
+</section>
+
+<section class="slide">
+  <p class="big" data-count-to="95.9" data-decimals="1" data-suffix="%">95.9%</p>
+  <p class="label">ของหน้าแรก 1,000,000 หน้า มีข้อผิดพลาด WCAG ที่ตรวจพบได้</p>
+  <p class="src">WebAIM Million 2026</p>
+</section>
+
+<section class="slide">
+  <p class="big" data-count-to="79.1" data-decimals="1" data-suffix="%">79.1%</p>
+  <p class="label">contrast ต่ำ — ปัญหาอันดับหนึ่ง แก้ได้ในไม่กี่บรรทัด CSS</p>
+  <p class="src">WebAIM Million 2026</p>
+</section>
+
+<section class="slide">
+  <h2>ไม่ต้องดำสนิทบนขาวสนิท</h2>
+  <div class="pair" aria-label="เทียบสี">
+    <div class="harsh">ดำ #000 บนขาว #fff<small>contrast 21 : 1 — จ้าเกินไป</small></div>
+    <div class="soft">#2b2a26 บน #f7f5f0<small>contrast 13.2 : 1 — สบายตา</small></div>
+  </div>
+  <p>ต่ำกว่า 4.5 : 1 คืออ่านยาก · สูงเกินไปก็ล้าตา</p>
+  <p class="src">WCAG 2 · APCA · งานวิจัย visual fatigue</p>
+</section>
+
+<section class="slide">
+  <h2>สแกนง่าย · เร็ว · ทุกคนใช้ได้</h2>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
