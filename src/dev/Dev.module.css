@@ -1,0 +1,12 @@
+.page { max-width: 64rem; margin: 0 auto; padding: 5rem var(--gutter) 6rem; }
+.section { border-top: 1px solid var(--line); padding-top: var(--gap-lg); }
+.h3 { font-size: 1.1em; font-weight: 600; color: var(--accent); }
+.note { color: var(--muted); font-size: var(--fs-small); }
+.demos { display: grid; gap: var(--gap-lg); margin-top: var(--gap-md); }
+.demo { display: grid; gap: var(--gap-sm); }
+.name { font-size: var(--fs-small); color: var(--muted); }
+/* transform makes position:fixed children (NavDots, ChromeBar) position relative to this box */
+.boxed { position: relative; transform: translate(0); height: 12rem; border: 1px dashed var(--line); border-radius: var(--radius); padding: var(--gap-md); }
+.row { display: flex; flex-wrap: wrap; gap: var(--gap-md); align-items: center; }
+.tokens { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: var(--gap-md); }
+.token { height: 4rem; border: 1px solid var(--line); border-radius: var(--radius); padding: 0.4rem 0.6rem; font-size: var(--fs-small); }
