@@ -1,0 +1,135 @@
+# Design — Slide "การสร้างเว็บไซต์"
+
+ระบบดีไซน์ของ slide (อ้างอิง prototype ใน `prototype/`, เหตุผลและแหล่งข้อมูลอยู่ใน `docs/research.md`)
+
+## หลักการ
+
+1. **เนื้อหานำ** — 1 สไลด์ = 1 ความคิด; ตัดของตกแต่งที่ไม่ช่วยการเรียนรู้
+2. **อ่านสบายตา** — ไม่ใช้ดำ/ขาวสนิท, contrast ~13:1 สำหรับเนื้อหา
+3. **ตัวเลขเป็นพระเอก** — ข้อมูลเชิงสถิติแสดงเป็นตัวเลขใหญ่ตัวเดียวพร้อมคำอธิบายสั้น
+4. **เข้าถึงได้** — ทุกคู่สีผ่าน WCAG AA, เคารพ `prefers-color-scheme` และ `prefers-reduced-motion`, ใช้งานด้วยคีย์บอร์ดได้
+
+## รูปแบบ (format)
+
+- เลื่อนแนวตั้งเต็มจอ (`scroll-snap-type: y mandatory`), 1 section = 1 สไลด์ สูง `100svh`
+- คีย์บอร์ด: ← ↑ PageUp = ก่อนหน้า · → ↓ PageDown Space = ถัดไป
+- จุดนำทางด้านขวา (`nav`) แสดงตำแหน่งปัจจุบัน
+- ปุ่ม "ธีม" มุมซ้ายบน: ตามระบบจนกว่าผู้ชมจะเลือกเอง (เก็บใน `localStorage`)
+
+## สี
+
+### Tokens
+
+| Token | Light | Dark | หน้าที่ | Contrast (L / D) |
+|---|---|---|---|---|
+| `--bg` | `#F7F5F0` | `#1C1D1F` | พื้นหลัง | — |
+| `--fg` | `#2B2A26` | `#E4E2DA` | ข้อความหลัก, หัวข้อ | 13.2 / 13.0 |
+| `--muted` | `#5E5B52` | `#A3A197` | คำอธิบายรอง, แหล่งที่มา | 6.2 / 6.5 |
+| `--accent` | `#6B3FC0` | `#B69CF5` | primary (ม่วง): ตัวเลขใหญ่, จุดเน้น, nav | 6.2 / 7.3 |
+| `--line` | fg @ 13% | fg @ 13% | เส้นขอบบางๆ | — |
+
+### กติกา
+- ห้ามใช้ `#000` / `#fff` เป็นพื้นหรือตัวอักษร (ยกเว้นสไลด์เดโมเทียบสี)
+- Dark mode ใช้เทาเข้ม ไม่ใช่ดำ และยก lightness ของม่วงเป็น lilac
+- ม่วงใช้กับตัวเลข/จุดเน้นเท่านั้น ไม่ใช้เป็นพื้นหลังกว้าง
+- ห้ามสื่อความหมายด้วยสีอย่างเดียว
+- สีใหม่ต้องคำนวณ contrast: ข้อความปกติ ≥ 4.5:1, ข้อความใหญ่/องค์ประกอบ UI ≥ 3:1
+
+## Typography
+
+- ฟอนต์: **Noto Sans Thai** (400, 600) → fallback Sarabun → `system-ui`
+- ไม่มีฟอนต์ตัวที่สอง; ลำดับชั้นสร้างจากขนาดและน้ำหนัก
+
+| บทบาท | ขนาด | น้ำหนัก | line-height |
+|---|---|---|---|
+| ตัวเลขใหญ่ `BigNumber` | `clamp(96px, 24vw, 340px)` | 600 | 1.1 |
+| หัวข้อปก `h1` | `clamp(40px, 7vw, 96px)` | 600 | 1.35 |
+| หัวข้อสไลด์ `h2` | `clamp(30px, 5vw, 72px)` | 600 | 1.4 |
+| คำอธิบาย `Text label` | 1.35em | 400 | 1.8 |
+| เนื้อความ | `clamp(18px, 1.6vw, 24px)` | 400 | 1.8 |
+| แหล่งที่มา `Source` | .75em | 400 | — |
+
+- line-height สูงกว่าละติน เพราะสระ/วรรณยุกต์ซ้อนแนวตั้ง
+- ตัวเลขใช้ `font-variant-numeric: tabular-nums`
+- ความกว้างบรรทัดคำอธิบาย ≤ 30ch
+
+## Layout
+
+- padding แนวนอน `clamp(24px, 10vw, 160px)`, แนวตั้ง 4rem
+- เนื้อหาชิดซ้าย จัดกึ่งกลางแนวตั้ง — ไม่จัดกึ่งกลางแนวนอน
+- แหล่งที่มาอยู่ล่างซ้ายของทุกสไลด์ข้อมูล (`Source` ใน `SlideFrame`)
+- มือถือ: ใช้ `clamp()` ปรับขนาดอัตโนมัติ ไม่ต้องมี breakpoint
+
+## รูปแบบสไลด์ (patterns)
+
+| Pattern | โครง | ใช้เมื่อ |
+|---|---|---|
+| **Cover** | `kicker` + `title` (h1) + `sub` | ปกบท |
+| **Stat** | `value` + `label` + `src` | ตัวเลขเดียวที่สำคัญ (สไลด์ส่วนใหญ่) |
+| **Statement** | `title` (+ `sub`, `src`) | ข้อความหลักหรือสรุป |
+| **Compare** | `title` + `items[]` (กล่องสี) | เทียบสองสิ่ง เช่น สีเข้ม vs สีนุ่ม |
+
+ข้อความอื่นที่ไม่ใช่ pattern เหล่านี้ให้ตั้งคำถามก่อนว่าควรแยกเป็นอีกสไลด์หรือไม่
+
+## Components เล็ก (UI kit)
+
+ตัวอย่างทุกตัวดูได้ที่ `/dev/components` (DEV เท่านั้น)
+
+| Component | Layer | หน้าที่ | ตัวเลือกหลัก |
+|---|---|---|---|
+| `Button` | atom | ปุ่มการกระทำในเนื้อหา | `variant`: primary (พื้นม่วง) / secondary (ขอบม่วง) / ghost · `size`: sm / md · `disabled` · `to` = ลิงก์ |
+| `Pill` | atom | ปุ่มเล็กของ chrome เช่น ธีม | `to` / `onClick` |
+| `Badge` | atom | ป้ายสั้น | `tone`: neutral / accent |
+| `Code` | atom | โค้ดในบรรทัด | — |
+| `Kbd` | atom | ปุ่มคีย์บอร์ด | — |
+| `ProgressBar` | atom | ความคืบหน้า (`role="progressbar"`) | `value` 0–100, `label` |
+| `Divider` | atom | เส้นคั่น | — |
+| `Callout` | molecule | กล่องเน้น 1 ประเด็น ขอบม่วงซ้าย | `title` |
+| `CodeBlock` | molecule | โค้ดหลายบรรทัด | `code`, `language` |
+| `Card` | molecule | กล่องหัวข้อ + คำอธิบาย + action | `title`, `action` |
+
+- ปุ่ม primary: ตัวอักษร `--bg` บนพื้น `--accent` (≈ 6:1 ทั้งสองธีม); ม่วงพื้นทึบใช้เฉพาะปุ่มเล็ก ไม่ใช้พื้นหลังกว้าง
+- ทุกตัวมี focus ring `2px solid var(--accent)` และปิด transition เมื่อ `prefers-reduced-motion`
+- สีอ่อน (tint) ใช้ `color-mix(in srgb, var(--accent) N%, var(--bg))` ไม่เขียนสีดิบ
+
+## Motion
+
+- Fade + เลื่อนขึ้น 12px เมื่อสไลด์เข้าจอ (0.5s) และตัวเลขนับขึ้น 0.9s (ease-out cubic)
+- เล่นครั้งเดียวต่อสไลด์
+- `prefers-reduced-motion`: ปิดทุกอย่าง แสดงค่าสุดท้ายทันที และเลิก smooth scroll
+
+## Accessibility checklist
+
+- [ ] contrast ผ่านเกณฑ์ทั้งสองธีม
+- [ ] `lang="th"` ที่ `<html>`
+- [ ] nav dot และปุ่มธีมมี `aria-label` และ focus ring (`outline: 2px solid var(--accent)`)
+- [ ] ภาพประกอบทุกภาพมี `alt` (ปัจจุบันไม่มีภาพ)
+- [ ] ใช้งานได้ด้วยคีย์บอร์ดล้วน
+- [ ] ตัวเลขนับขึ้นมี `aria-label` เป็นค่าสุดท้าย (screen reader ไม่อ่านค่าระหว่างนับ)
+
+## โครงสร้างโค้ด
+
+ดู `docs/architecture.md` (โครงสร้างโฟลเดอร์, Atomic layers, กฎทั้งหมด) — สรุปที่เกี่ยวกับดีไซน์:
+
+- ค่าดีไซน์ทั้งหมดอยู่ที่ `src/shared/styles/tokens.css` (สี, ขนาดตัวอักษร, ระยะ, gutter)
+- สไลด์แต่ละ pattern = template หนึ่งตัวใน `shared/components/templates/` ประกอบจาก atoms/molecules
+- เนื้อหาเป็นข้อมูล `SlideData[]` ใน `src/content/chapters/<slug>/slides.ts`
+- URL แชร์ได้ต่อบทและต่อสไลด์: `/speed#3`
+
+## การเพิ่มเนื้อหา
+
+```ts
+// src/content/chapters/speed/slides.ts
+const slides: SlideData[] = [
+  { type: 'cover', kicker: 'บทที่ 2', title: 'ความเร็ว', sub: 'Core Web Vitals' },
+  { type: 'stat', value: 79.1, decimals: 1, suffix: '%', label: 'คำอธิบายหนึ่งประโยค', src: 'แหล่งที่มา' },
+]
+```
+`prefix` ใช้ใส่เครื่องหมายนำหน้า เช่น `−` · dot nav และสไลด์บทถัดไปสร้างอัตโนมัติ
+
+## ไฟล์หลัก
+
+- `src/shared/styles/` — tokens และ base
+- `src/shared/components/` — atoms → molecules → organisms → templates
+- `src/content/` — เนื้อหา
+- `prototype/` — prototype HTML/CSS/JS ตัวเดิม (อ้างอิง)
