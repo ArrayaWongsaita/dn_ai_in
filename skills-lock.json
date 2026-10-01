@@ -25,6 +25,12 @@
       "skillPath": "skills/engineering/domain-modeling/SKILL.md",
       "computedHash": "b3eb40152b81f0c98fd2095a023c019452dbdce56f7540cc67fece2972db8369"
     },
+    "grill-to-tickets": {
+      "source": "ArrayaWongsaita/skills",
+      "sourceType": "github",
+      "skillPath": "skills/agents/grill-to-tickets/SKILL.md",
+      "computedHash": "3a810a1e64d8ad4be919af77768c24b73b0603066508f8c19b27abba84bddd1a"
+    },
     "grill-with-docs": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -54,6 +60,18 @@
       "sourceType": "github",
       "skillPath": "skills/engineering/implement-spec/SKILL.md",
       "computedHash": "f0db7dafd236fff9dc40da566cb72bbad6802674f64617b06959b00a436c7d5b"
+    },
+    "implement-tickets": {
+      "source": "ArrayaWongsaita/skills",
+      "sourceType": "github",
+      "skillPath": "skills/agents/implement-tickets/SKILL.md",
+      "computedHash": "acf065b0af5a59d13a43af0b8224a5e92afb0626ab84d75b5091ee3482446d8d"
+    },
+    "scrutinize": {
+      "source": "thananon/9arm-skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/scrutinize/SKILL.md",
+      "computedHash": "d82a0b76617a00069f972cd0efd57c591e18b56f7aa0652aec63f6cb37cfd735"
     },
     "setup-matt-pocock-skills": {
       "source": "mattpocock/skills",
