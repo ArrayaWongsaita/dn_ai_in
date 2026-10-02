@@ -1,0 +1,90 @@
+.layout > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr);
+  column-gap: var(--gap-md);
+  align-items: stretch;
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) min-content minmax(0, 1fr);
+  column-gap: var(--gap-sm);
+  row-gap: var(--gap-sm);
+  align-items: stretch;
+}
+
+.zone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  min-width: 0;
+  min-height: var(--gap-lg);
+  padding: var(--gap-sm);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg));
+}
+
+.zoneTitle { color: var(--fg); font-size: var(--fs-small); line-height: var(--lh-body); }
+.zoneNote, .cardLabel { color: var(--muted); font-size: var(--fs-small); line-height: var(--lh-body); }
+.cards { display: flex; flex-direction: column; gap: var(--gap-sm); }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--gap-sm);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.cardName { font-size: var(--fs-small); overflow-wrap: anywhere; }
+
+.internet {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: var(--gap-lg);
+  color: var(--muted);
+}
+
+.internetLine {
+  position: absolute;
+  inset-block: 0;
+  border-left: 1px dashed var(--accent);
+}
+
+.internetLabel {
+  position: relative;
+  padding-block: var(--gap-sm);
+  background: var(--bg);
+  font-size: var(--fs-small);
+  writing-mode: vertical-rl;
+}
+
+.terminal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  min-width: 0;
+  padding: var(--gap-md);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--fg) 4%, var(--bg));
+  color: var(--fg);
+}
+
+.terminalTitle { color: var(--muted); font-size: var(--fs-small); }
+.command { color: var(--accent); font-size: var(--fs-small); white-space: pre-wrap; overflow-wrap: anywhere; }
+.output { margin: 0; color: var(--fg); font-family: var(--font-sans); font-size: var(--fs-small); line-height: var(--lh-body); white-space: pre-wrap; overflow-wrap: anywhere; }
+.caption { color: var(--fg); }
+
+@media (max-width: 48rem) {
+  .layout > div { grid-template-columns: minmax(0, 1fr); }
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .internet { min-height: var(--gap-lg); min-width: 0; }
+  .internetLine { inset-block: auto; inset-inline: 0; border-left: 0; border-top: 1px dashed var(--accent); }
+  .internetLabel { padding-inline: var(--gap-sm); padding-block: 0; writing-mode: horizontal-tb; }
+}

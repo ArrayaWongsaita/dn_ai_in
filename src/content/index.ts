@@ -1,5 +1,6 @@
 import { meta as accessibility } from './chapters/accessibility/meta'
 import { meta as color } from './chapters/color/meta'
+import { meta as git } from './chapters/git/meta'
 import { meta as reading } from './chapters/reading/meta'
 import { meta as speed } from './chapters/speed/meta'
 import { meta as summary } from './chapters/summary/meta'
@@ -12,6 +13,7 @@ export const chapters: Chapter[] = [
   { ...accessibility, load: () => import('./chapters/accessibility/slides') },
   { ...color, load: () => import('./chapters/color/slides') },
   { ...summary, load: () => import('./chapters/summary/slides') },
+  { ...git, load: () => import('./chapters/git/slides') },
 ]
 
 const cache = new Map<string, ReturnType<Chapter['load']>>()

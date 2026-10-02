@@ -1,6 +1,6 @@
 # Content index
 
-รวม 5 บท · 15 สไลด์
+รวม 6 บท · 18 สไลด์
 
 > สร้างอัตโนมัติจาก `src/content/` ด้วย `pnpm content:index` — **ห้ามแก้ด้วยมือ** (ภาพรวมเชิงเล่าเรื่องอยู่ใน `docs/content-map.md`)
 
@@ -43,3 +43,11 @@ contrast, off-white, ม่วง · 2 สไลด์ · `src/content/chapters/
 สามข้อที่ต้องจำ · 1 สไลด์ · `src/content/chapters/summary/slides.ts`
 
 1. **ข้อความ** สแกนง่าย · เร็ว · ทุกคนใช้ได้
+
+## 6. Git — `/git`
+
+ปุ่มย้อนกลับให้โค้ด และพื้นที่ทำงานร่วมกัน · 3 สไลด์ · `src/content/chapters/git/slides.ts`
+
+1. **ปก** Git — ปุ่มย้อนกลับให้โค้ด · วิธีทำงานร่วมกับคนอื่น
+2. **GitFlow** scene=overview · command=— — รู้จัก 4 พื้นที่ของ Git · ไฟล์จะเดินทางระหว่างพื้นที่เหล่านี้เมื่อใช้คำสั่ง
+3. **GitFlow** scene=init · command=git init — เริ่มติดตามโฟลเดอร์ด้วย Git · สร้าง repository ว่าง โดยไฟล์เดิมยังอยู่ที่เดิม

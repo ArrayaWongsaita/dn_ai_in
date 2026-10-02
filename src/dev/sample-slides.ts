@@ -34,4 +34,6 @@ export const sampleSlides: SlideData[] = [
       { text: 'สาม', fg: '#e4e2da', bg: '#1c1d1f' },
     ],
   },
+  { type: 'gitflow', scene: 'overview', command: '', title: 'ตัวอย่าง GitFlow · overview' },
+  { type: 'gitflow', scene: 'init', command: 'git init', title: 'ตัวอย่าง GitFlow · init' },
 ]

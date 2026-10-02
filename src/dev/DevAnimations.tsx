@@ -1,5 +1,6 @@
-import { HttpExchange } from '@/shared/components/organisms'
+import { GitFlow, HttpExchange } from '@/shared/components/organisms'
 import { SeenContext } from '@/shared/hooks'
+import { gitFlowScenes } from '@/shared/animation/gitflow'
 import { Demo, DevLayout, Section } from './DevLayout'
 
 /** /dev/animations — GSAP-driven explainers with dummy data. Each one is a reusable organism. */
@@ -17,6 +18,15 @@ export default function DevAnimations() {
           <Demo name="GET → 404 Not Found">
             <HttpExchange method="GET" path="/missing" status={404} statusText="Not Found" />
           </Demo>
+        </SeenContext>
+      </Section>
+      <Section title="GitFlow" note="ทุก scene ที่ลงทะเบียนจะแสดงที่นี่โดยอัตโนมัติ">
+        <SeenContext value={true}>
+          {Object.entries(gitFlowScenes).map(([sceneId, scene]) => (
+            <Demo key={sceneId} name={scene.title}>
+              <GitFlow sceneId={sceneId} command={scene.command} />
+            </Demo>
+          ))}
         </SeenContext>
       </Section>
     </DevLayout>
