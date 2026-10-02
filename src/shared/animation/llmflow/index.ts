@@ -1,8 +1,10 @@
 import type { LlmFlowSceneId } from '@/shared/types/slide'
+import { context } from './context'
 import { loop } from './loop'
 import { overview } from './overview'
 import { predict } from './predict'
 import { tokenize } from './tokenize'
+import { wrong } from './wrong'
 
 export { llmFlowExample } from './example'
 
@@ -57,4 +59,4 @@ export interface LlmFlowSceneDefinition {
 }
 
 /** Every registered scene gets an automatic dev example through this registry. */
-export const llmFlowScenes = { overview, tokenize, predict, loop } satisfies Partial<Record<LlmFlowSceneId, LlmFlowSceneDefinition>>
+export const llmFlowScenes = { overview, tokenize, predict, loop, context, wrong } satisfies Record<LlmFlowSceneId, LlmFlowSceneDefinition>
