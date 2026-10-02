@@ -173,32 +173,36 @@ export function buildPushTimeline(tl: gsap.core.Timeline) {
 }
 
 const cloneOrigin: GitFlowCard[] = [
-  { id: 'clone-origin-commit', name: 'b7c2e91', zone: 'remote', state: 'snapshot', label: 'Add project files' },
+  { id: 'clone-origin-files', name: 'b7c2e91', zone: 'remote', state: 'snapshot', label: 'Add project files' },
+  { id: 'clone-origin-update', name: 'e5f8a12', zone: 'remote', state: 'snapshot', label: 'Update header' },
   { id: 'clone-origin-index', name: 'index.html', zone: 'remote', state: 'file', label: 'ไฟล์ใน origin' },
   { id: 'clone-origin-style', name: 'style.css', zone: 'remote', state: 'file', label: 'ไฟล์ใน origin' },
   { id: 'clone-origin-app', name: 'app.js', zone: 'remote', state: 'file', label: 'ไฟล์ใน origin' },
 ]
 const cloneCopies: GitFlowCard[] = [
-  { id: 'clone-local-commit', name: 'b7c2e91', zone: 'repository', state: 'snapshot', label: 'Add project files' },
+  { id: 'clone-local-files', name: 'b7c2e91', zone: 'repository', state: 'snapshot', label: 'Add project files' },
+  { id: 'clone-local-update', name: 'e5f8a12', zone: 'repository', state: 'snapshot', label: 'Update header' },
   { id: 'clone-work-index', name: 'index.html', zone: 'working', state: 'clean', label: 'copied from origin' },
   { id: 'clone-work-style', name: 'style.css', zone: 'working', state: 'clean', label: 'copied from origin' },
   { id: 'clone-work-app', name: 'app.js', zone: 'working', state: 'clean', label: 'copied from origin' },
 ]
+const clonedCommits = cloneCopies.filter((card) => card.state === 'snapshot')
+const clonedFiles = cloneCopies.filter((card) => card.zone === 'working')
 const cloneState: RemoteState = {
   connectionName: origin,
   cards: [...cloneOrigin, ...cloneCopies],
   zones: {
-    working: { state: 'files', note: `${cloneCopies.filter((card) => card.zone === 'working').length} ไฟล์ที่ clone มา` },
+    working: { state: 'files', note: `${clonedFiles.length} ไฟล์ที่ clone มา` },
     staging: { state: 'empty', note: 'ไม่มีไฟล์รอ commit' },
-    repository: { state: 'history', note: `ได้ commit ${cloneCopies[0].name}` },
+    repository: { state: 'history', note: `ได้ ${clonedCommits.length} commits` },
     remote: { state: 'history', note: `${origin} · repository ต้นทาง` },
   },
   output: [
     `Cloning ${remoteUrl}`,
-    `${cloneCopies[0].name} ${cloneCopies[0].label}`,
-    `${cloneCopies.filter((card) => card.zone === 'working').length} files checked out`,
+    ...clonedCommits.map((card) => `${card.name} ${card.label}`),
+    `${clonedFiles.length} files checked out`,
   ].join('\n'),
-  caption: `git clone คัดลอก commit จาก ${origin} ลง repository และนำไฟล์ทั้งสามมาไว้ในโฟลเดอร์ทำงาน`,
+  caption: `git clone คัดลอก ${clonedCommits.length} commits จาก ${origin} ลง repository และนำไฟล์ทั้งสามมาไว้ในโฟลเดอร์ทำงาน`,
   initial: {
     cards: Object.fromEntries(cloneCopies.map((card) => [card.id, { zone: 'none', state: 'hidden' }])),
     zones: { working: 'empty', repository: 'empty' }, connectionName: origin,

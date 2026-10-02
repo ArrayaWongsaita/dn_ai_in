@@ -94,23 +94,18 @@ const mainRef: GitFlowCard = {
   id: 'branch-main-ref', name: 'main', zone: 'repository', state: 'branch', label: `ชี้ไปที่ ${branchBase.name}`,
 }
 const featureRef: GitFlowCard = {
-  id: 'branch-feature-ref', name: 'feature', zone: 'repository', state: 'branch', label: `HEAD · แยกจาก ${branchBase.name}`,
+  id: 'branch-feature-ref', name: 'feature', zone: 'repository', state: 'current-branch', label: `HEAD · ชี้ไปที่ ${branchBase.name}`,
 }
 const branchState: SceneState = {
   cards: [branchBase, mainRef, featureRef],
   zones: {
     working: { state: 'clean', note: 'ยังไม่มีการแก้ไฟล์' },
     staging: { state: 'empty', note: 'ไม่มีไฟล์รอ commit' },
-    repository: { state: 'branches', note: 'main และ feature เริ่มจาก commit เดียวกัน' },
+    repository: { state: 'branches', note: 'main และ feature ชี้ commit เดียวกันจนกว่าจะมี commit ใหม่' },
     remote: { state: 'disconnected', note: 'ที่เก็บบน GitHub' },
   },
-  output: [
-    `Created branch ${featureRef.name} at ${branchBase.name}`,
-    `Switched to branch '${featureRef.name}'`,
-    `* ${branchBase.name} (HEAD -> ${featureRef.name}, ${mainRef.name})`,
-    `  ${mainRef.name} and ${featureRef.name} share this commit until new work is committed.`,
-  ].join('\n'),
-  caption: `สร้าง branch ${featureRef.name} จาก ${mainRef.name} แล้วสลับ current branch ไปที่ ${featureRef.name}`,
+  output: `* ${branchBase.name} (HEAD -> ${featureRef.name}, ${mainRef.name})`,
+  caption: `สร้าง branch ${featureRef.name} จาก ${mainRef.name} แล้วสลับ current branch ไปที่ ${featureRef.name}; ทั้งคู่ยังชี้ commit เดียวกัน`,
   currentBranch: featureRef.name,
   initial: {
     cards: {

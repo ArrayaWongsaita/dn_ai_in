@@ -67,8 +67,8 @@ const slides: SlideData[] = [
     type: 'gitflow',
     scene: 'branch',
     command: 'git branch feature\n$ git switch feature',
-    title: 'แยกสายงานแล้วสลับไปทำต่อ',
-    sub: 'สร้าง branch feature จาก main แล้วเปลี่ยนสายงานปัจจุบัน',
+    title: 'สร้าง branch แล้วสลับไปทำงาน',
+    sub: 'feature เริ่มจาก commit เดียวกับ main; ประวัติจะแยกเมื่อมี commit ใหม่',
   },
   {
     type: 'gitflow',
@@ -84,8 +84,9 @@ const slides: SlideData[] = [
   },
   {
     type: 'statement',
-    title: 'ก่อนใช้ GitHub ต้องมีบัญชีและล็อกอิน',
-    sub: 'Lab จะพาสมัครและเข้าสู่ระบบก่อนลองเชื่อม repository',
+    title: 'ก่อน push ขึ้น GitHub ต้องมีบัญชีและล็อกอิน',
+    sub: 'Lab จะพาสมัครและเข้าสู่ระบบก่อนลองส่งงานขึ้น remote',
+    src: 'GitHub Docs · Getting started with your GitHub account (docs.github.com)',
   },
   {
     type: 'gitflow',
@@ -121,7 +122,7 @@ const slides: SlideData[] = [
     sub: [
       'git init — ให้ Git เริ่มติดตามโฟลเดอร์ · git status — ดูสถานะไฟล์',
       'git add style.css — เตรียมไฟล์เข้า commit · git commit -m "Add project files" — บันทึก snapshot',
-      'git commit -m "Add stylesheet" — บันทึก snapshot · git log --oneline — ดูประวัติ commit แบบย่อ',
+      'git commit -m "Add stylesheet" — บันทึก snapshot · git log --oneline — ดูประวัติแบบย่อ',
       'git restore app.js — คืนไฟล์จาก commit ล่าสุด · git branch feature — สร้างสายงาน feature',
       'git switch feature — สลับไปสายงาน feature · git merge feature — รวม feature เข้าสายงานปัจจุบัน',
       'git remote add origin https://github.com/example/site.git — ตั้งชื่อ URL ปลายทาง',
