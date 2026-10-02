@@ -16,6 +16,8 @@ export interface StatementData { type: 'statement'; title: string; sub?: string;
 export interface CompareItem { text: string; note?: string; fg: string; bg: string }
 export interface CompareData { type: 'compare'; title: string; items: CompareItem[]; sub?: string; src?: string }
 
-export type SlideData = CoverData | StatData | StatementData | CompareData
+export interface GitFlowData { type: 'gitflow'; scene: string; command: string; title: string; sub?: string }
+
+export type SlideData = CoverData | StatData | StatementData | CompareData | GitFlowData
 
 export interface NextChapter { to: string; title: string }

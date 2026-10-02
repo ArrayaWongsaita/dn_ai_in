@@ -51,7 +51,7 @@ dev   → shared (ห้ามใช้เนื้อหาจริง)
 | **atoms** | องค์ประกอบเดี่ยว ไม่รู้บริบท | `Heading` `Text` `Kicker` `Source` `BigNumber` `Stack` `Screen` `Pill` `Dot` `Swatch` `AppLink` | hooks, lib, types |
 | **molecules** | atoms รวมเป็นหน้าที่เดียว | `CountUp` `StatBlock` `NavDots` `ThemeToggle` `ChromeBar` `SwatchRow` `TocItem` | atoms |
 | **organisms** | ส่วนของหน้าที่มีพฤติกรรม | `SlideFrame` `Deck` `TocList` | atoms, molecules |
-| **templates** | จับ SlideData มาเป็นสไลด์ | `CoverSlide` `StatSlide` `StatementSlide` `CompareSlide` `EndSlide` `SlideRenderer` `SlideDeck` | atoms, molecules, organisms |
+| **templates** | จับ SlideData มาเป็นสไลด์ | `CoverSlide` `StatSlide` `StatementSlide` `CompareSlide` `GitflowSlide` `EndSlide` `SlideRenderer` `SlideDeck` | atoms, molecules, organisms |
 
 🔒 layer ล่างห้าม import layer ที่อยู่สูงกว่า (`no-restricted-imports` ใน `eslint.config.js`)
 
@@ -79,7 +79,7 @@ dev   → shared (ห้ามใช้เนื้อหาจริง)
 13. **เนื้อหา = ข้อมูลล้วน** `SlideData[]` ใน `.ts` ไม่มี JSX ไม่ import component 🔒
 14. ขึ้นบรรทัดใหม่ในข้อความด้วย `\n` (component แสดงผลด้วย `white-space: pre-line`)
 15. **1 บท = 1 โฟลเดอร์** `content/chapters/<slug>/` มี `meta.ts` + `slides.ts` แล้วลงทะเบียนใน `content/index.ts` (ลำดับใน array = ลำดับการอ่าน)
-16. ทุกสไลด์ข้อมูลต้องมี `src` (แหล่งที่มา) และตัวเลขต้องตรงกับ `docs/research.md`
+16. สไลด์ที่ยกข้อเท็จจริงหรือตัวเลขจากภายนอกต้องมี `src`; ตัวเลขต้องตรงกับ `docs/research.md`. คำอธิบายการทำงานของคำสั่ง Git ไม่ต้องมี `src`
 17. 1 สไลด์ = 1 ความคิด (ดู `design.md`)
 18. `slug` ใช้ `kebab-case` ภาษาอังกฤษ ไม่ซ้ำ; ชื่อ/สรุปเป็นภาษาไทยได้
 
@@ -117,7 +117,7 @@ content/chapters/x/slides.ts  ──(lazy import)──►  ChapterPage
                                                      ▼
                                    SlideDeck (template)  ← next chapter จาก registry
                                      ├─ Deck (organism): chrome + NavDots + คีย์บอร์ด/#n
-                                     ├─ SlideRenderer → CoverSlide | StatSlide | …
+                                     ├─ SlideRenderer → CoverSlide | StatSlide | GitflowSlide | …
                                      │     └─ SlideFrame (organism): snap, reveal, SeenContext
                                      │           └─ molecules → atoms
                                      └─ EndSlide

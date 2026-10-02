@@ -10,12 +10,17 @@ const root = resolve(import.meta.dirname, '..')
 const out = resolve(root, 'docs/content-index.md')
 const order = [...readFileSync(resolve(root, 'src/content/index.ts'), 'utf8').matchAll(/import\('\.\/chapters\/([\w-]+)\/slides'\)/g)].map((m) => m[1])
 const load = async (slug, file) => (await import(pathToFileURL(resolve(root, `src/content/chapters/${slug}/${file}.ts`)))).default ?? {}
+const toSingleLine = (value) => value.replaceAll('\n', ' ↵ ')
 
 const show = {
   cover: (d) => `**ปก** ${d.title}${d.sub ? ` — ${d.sub}` : ''}`,
   stat: (d) => `**ตัวเลข** ${d.prefix ?? ''}${d.value}${d.suffix ?? ''} — ${d.label}${d.src ? ` _(${d.src})_` : ''}`,
-  statement: (d) => `**ข้อความ** ${d.title}${d.sub ? ` — ${d.sub}` : ''}${d.src ? ` _(${d.src})_` : ''}`,
+  statement: (d) => `**ข้อความ** ${d.title}${d.sub ? ` — ${toSingleLine(d.sub)}` : ''}${d.src ? ` _(${d.src})_` : ''}`,
   compare: (d) => `**เทียบ** ${d.title}: ${d.items.map((i) => `${i.text}${i.note ? ` (${i.note})` : ''}`).join(' ⇄ ')}${d.sub ? ` — ${d.sub}` : ''}`,
+  gitflow: (d) => {
+    const command = toSingleLine(d.command) || '—'
+    return `**GitFlow** scene=${d.scene} · command=${command} — ${d.title}${d.sub ? ` · ${toSingleLine(d.sub)}` : ''}`
+  },
 }
 
 const lines = [
