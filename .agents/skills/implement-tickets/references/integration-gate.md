@@ -1,40 +1,30 @@
-# Wave integration gate
+# Integration gate
 
-After every ticket in the wave is verified, squash-merge the verified worker
-branches onto `implement-tickets/<slug>` in ascending ticket-number
-order, creating exactly one commit per ticket. Update the ticket's status and
-recorded commit after each successful merge.
+After a ticket passes (verified, or judged without a verifier), squash-merge its
+worker branch onto `implement-tickets/<slug>` as exactly one commit, then run
+the project's full typecheck and the full test suite on the integration branch.
+A green result completes the ticket. Start the next ticket only after it.
 
-After all tickets in the wave have been merged, run the project's full
-typecheck and the full test suite on the integration branch. A green result completes the
-wave gate. Do not begin the next wave before the gate passes.
+A merge conflict is mechanical when the orchestrator can resolve it without
+changing behavior; otherwise redispatch the ticket from the latest integration
+commit at the cost of one attempt.
 
-## Find and isolate a failing merge
+## Failing gate
 
-If the gate fails:
+If the gate fails, the ticket is the culprit:
 
-1. Re-merge the verified wave from its pre-wave integration commit, in
-   ticket-number order. After each merge (squash-merge and ticket commit), run the
-   project's full typecheck and full test suite. The first merge after which either check
-   fails is the culprit.
-2. Move the integration branch to the last good commit with
-   `git checkout -B <integration-branch> <sha>`. Use this branch checkout to
-   rewind; do not use a hard reset.
-3. Re-merge the already-verified later tickets, in ticket order, keeping one
-   squash commit per ticket, without re-verifying them.
-4. Run the gate once more: run the project's full typecheck and full test suite
-   on that rebuilt integration branch.
-5. Re-dispatch the culprit alone as a serial attempt. This gate-triggered
-   dispatch counts one attempt. Its dependants remain behind
-   it until it passes verification and the wave gate.
+1. Move the integration branch back to the commit before the ticket with
+   `git checkout -B <integration-branch> <sha>` (the one rewind command, also
+   used by `continue`).
+2. Redispatch the ticket from that commit with the failing output in the
+   prompt. This counts one attempt.
 
-Record the failing check, culprit, last good commit, replayed ticket commits,
-and gate result in `status.md` so `continue` can reconcile the run.
+Record the failing check, the ticket, and the last good commit in `status.md`.
 
-## Successful handoff
+## Handoff
 
-When every ticket is integrated and the last suite is green, print a handoff
-naming `implement-tickets/<slug>` and review commands, for example:
+When every ticket is integrated and the last gate is green, print the
+integration branch and review commands:
 
 ```text
 git log --oneline <base>..implement-tickets/<slug>
@@ -42,4 +32,19 @@ git diff --stat <base>...implement-tickets/<slug>
 /review-to-pr <slug>
 ```
 
-Stop after printing the handoff. Do not run review, push, or open a pull request.
+Include the tickets with accepted extra files, so review starts from the
+complete list:
+
+```text
+| Ticket | Accepted extra files |
+| --- | --- |
+| 02 | `docs/research/topic.md` |
+```
+
+List by number the tickets that skipped the verifier (for example
+`Skipped the verifier: 02, 04`), or print `none`. List any blocked tickets with
+their reasons. Name `report.md` when it has entries, or print
+`Run report: none`.
+
+Stop after printing the handoff. Review, push, and the pull request stay with
+the person.

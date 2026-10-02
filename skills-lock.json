@@ -29,7 +29,7 @@
       "source": "ArrayaWongsaita/skills",
       "sourceType": "github",
       "skillPath": "skills/agents/grill-to-tickets/SKILL.md",
-      "computedHash": "3a810a1e64d8ad4be919af77768c24b73b0603066508f8c19b27abba84bddd1a"
+      "computedHash": "0ae227810658304dfee94bfb52fc5c155ad5c647efce426b578e5aa1e42c7fcd"
     },
     "grill-with-docs": {
       "source": "mattpocock/skills",
@@ -65,7 +65,7 @@
       "source": "ArrayaWongsaita/skills",
       "sourceType": "github",
       "skillPath": "skills/agents/implement-tickets/SKILL.md",
-      "computedHash": "acf065b0af5a59d13a43af0b8224a5e92afb0626ab84d75b5091ee3482446d8d"
+      "computedHash": "8b34a8be5650c07dd3c3e43117a6de51a75a11c1089ab5817d2ef0388c5dfeb3"
     },
     "scrutinize": {
       "source": "thananon/9arm-skills",
@@ -95,7 +95,7 @@
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/react-best-practices/SKILL.md",
-      "computedHash": "3219a1944e404ffc14d1d9d6aef6dd2e3855b81387ee0a044ccbfe14d34c2357"
+      "computedHash": "ca7b0c0c6e5f2750043f7f0cd72d16ac4e2abc48f9b5500d047a4b77a2506212"
     }
   }
 }

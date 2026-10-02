@@ -26,8 +26,8 @@ test "$(git rev-parse HEAD)" = "<integration-sha>" || { echo "failed_infra: HEAD
 
 The first command checks out the worker branch at the integration SHA. The
 second asserts that `HEAD` equals that exact SHA. If checkout fails or the
-assertion finds a mismatch, stop and return `failed_infra`; do not spend a
-ticket attempt or continue with implementation.
+assertion finds a mismatch, stop and return `failed_infra`; the ticket keeps its attempt and
+implementation waits for a fresh worker.
 
 ## What to build
 
@@ -55,26 +55,35 @@ ticket attempt or continue with implementation.
 2. **Green:** make the smallest implementation that makes the tests pass.
 3. **Refactor:** tidy only the changes you made and keep the tests passing.
 
-Run the ticket tests and the project's configured typecheck. If the repository
+Run the ticket tests and the project's configured typecheck. The full test
+suite is left to the integration gate, which runs it after each squash-merge. If the repository
 has no typecheck command, report that instead of inventing one.
 
 ## Constraints
 
-- Touch only the files assigned to this ticket or clearly required by them.
+- Work in the files assigned to this ticket. Extra files are allowed when
+  required, and you must report each one under Touch-set extras.
 - Reuse installed dependencies. If a new dependency is needed, stop and report
   it without installing.
 - Read only the listed files or files clearly required by them.
-- Commit the work on the worker branch. Do not push or open a pull request.
+- Commit the work on the worker branch and leave it local: the orchestrator
+  integrates it.
 - If a required design decision is missing, stop and report it.
 
 ## Return
 
 End your report with exactly these sections:
 
-- **Red output:** the failing test run from the red step, verbatim.
-- **Green output:** the passing test run and typecheck from the final step,
-  verbatim, noting if no typecheck is configured.
+- **Red output:** the red command you ran, its exit code, and the failing
+  test run from the red step, verbatim and unabridged.
+- **Green output:** the green command you ran, its exit code, and the passing
+  test run from the final step, verbatim and unabridged, then the typecheck
+  result (command, exit code, output), or `none configured` when the
+  repository has no typecheck command.
 - **Files changed:** every file created or modified, split into test files and
   implementation files.
 - **Test → criterion table:** each new test mapped to the acceptance criterion
   it covers.
+- **Touch-set extras:** every file outside its declared touch set (the
+  `Change` and `Create` paths above) that you changed, each with the reason it
+  was required. Write `none` when there are no extras.
