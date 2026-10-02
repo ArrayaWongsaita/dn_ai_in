@@ -14,9 +14,12 @@ const load = async (slug, file) => (await import(pathToFileURL(resolve(root, `sr
 const show = {
   cover: (d) => `**ปก** ${d.title}${d.sub ? ` — ${d.sub}` : ''}`,
   stat: (d) => `**ตัวเลข** ${d.prefix ?? ''}${d.value}${d.suffix ?? ''} — ${d.label}${d.src ? ` _(${d.src})_` : ''}`,
-  statement: (d) => `**ข้อความ** ${d.title}${d.sub ? ` — ${d.sub}` : ''}${d.src ? ` _(${d.src})_` : ''}`,
+  statement: (d) => `**ข้อความ** ${d.title}${d.sub ? ` — ${d.sub.replaceAll('\n', ' ↵ ')}` : ''}${d.src ? ` _(${d.src})_` : ''}`,
   compare: (d) => `**เทียบ** ${d.title}: ${d.items.map((i) => `${i.text}${i.note ? ` (${i.note})` : ''}`).join(' ⇄ ')}${d.sub ? ` — ${d.sub}` : ''}`,
-  gitflow: (d) => `**GitFlow** scene=${d.scene} · command=${d.command || '—'} — ${d.title}${d.sub ? ` · ${d.sub}` : ''}`,
+  gitflow: (d) => {
+    const command = d.command.replaceAll('\n', ' ↵ ') || '—'
+    return `**GitFlow** scene=${d.scene} · command=${command} — ${d.title}${d.sub ? ` · ${d.sub.replaceAll('\n', ' ↵ ')}` : ''}`
+  },
 }
 
 const lines = [

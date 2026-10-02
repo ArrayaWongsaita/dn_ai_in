@@ -1,12 +1,12 @@
-# Design — Slide "การสร้างเว็บไซต์"
+# Design — Slide บท Git
 
-ระบบดีไซน์ของ slide (อ้างอิง prototype ใน `prototype/`, เหตุผลและแหล่งข้อมูลอยู่ใน `docs/research.md`)
+ระบบดีไซน์ของ slide ใช้ tokens ใน `src/shared/styles/tokens.css`; เหตุผลและแหล่งข้อมูลอยู่ใน `docs/research.md`
 
 ## หลักการ
 
 1. **เนื้อหานำ** — 1 สไลด์ = 1 ความคิด; ตัดของตกแต่งที่ไม่ช่วยการเรียนรู้
 2. **อ่านสบายตา** — ไม่ใช้ดำ/ขาวสนิท, contrast ~13:1 สำหรับเนื้อหา
-3. **ตัวเลขเป็นพระเอก** — ข้อมูลเชิงสถิติแสดงเป็นตัวเลขใหญ่ตัวเดียวพร้อมคำอธิบายสั้น
+3. **เห็นการเปลี่ยนสถานะ** — แสดงคำสั่งและผลที่เกิดกับไฟล์ให้เห็นตรงกัน
 4. **เข้าถึงได้** — ทุกคู่สีผ่าน WCAG AA, เคารพ `prefers-color-scheme` และ `prefers-reduced-motion`, ใช้งานด้วยคีย์บอร์ดได้
 
 ## รูปแบบ (format)
@@ -68,6 +68,9 @@
 | **Stat** | `value` + `label` + `src` | ตัวเลขเดียวที่สำคัญ (สไลด์ส่วนใหญ่) |
 | **Statement** | `title` (+ `sub`, `src`) | ข้อความหลักหรือสรุป |
 | **Compare** | `title` + `items[]` (กล่องสี) | เทียบสองสิ่ง เช่น สีเข้ม vs สีนุ่ม |
+| **GitFlow** | `scene` + `command` + `title` (+ `sub`) | แสดงคำสั่ง Git ด้วยภาพสี่พื้นที่และเทอร์มินัล |
+
+GitFlow ใช้ scene จาก registry ใน `src/shared/animation/gitflow/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงผลลัพธ์เดียวกับสถานะของไฟล์
 
 ข้อความอื่นที่ไม่ใช่ pattern เหล่านี้ให้ตั้งคำถามก่อนว่าควรแยกเป็นอีกสไลด์หรือไม่
 
@@ -114,18 +117,18 @@
 - ค่าดีไซน์ทั้งหมดอยู่ที่ `src/shared/styles/tokens.css` (สี, ขนาดตัวอักษร, ระยะ, gutter)
 - สไลด์แต่ละ pattern = template หนึ่งตัวใน `shared/components/templates/` ประกอบจาก atoms/molecules
 - เนื้อหาเป็นข้อมูล `SlideData[]` ใน `src/content/chapters/<slug>/slides.ts`
-- URL แชร์ได้ต่อบทและต่อสไลด์: `/speed#3`
+- URL แชร์ได้ต่อบทและต่อสไลด์: `/git#3`
 
 ## การเพิ่มเนื้อหา
 
 ```ts
-// src/content/chapters/speed/slides.ts
+// src/content/chapters/git/slides.ts
 const slides: SlideData[] = [
-  { type: 'cover', kicker: 'บทที่ 2', title: 'ความเร็ว', sub: 'Core Web Vitals' },
-  { type: 'stat', value: 79.1, decimals: 1, suffix: '%', label: 'คำอธิบายหนึ่งประโยค', src: 'แหล่งที่มา' },
+  { type: 'cover', kicker: 'บท B3', title: 'Git', sub: 'ปุ่มย้อนกลับให้โค้ด · ทำงานร่วมกัน' },
+  { type: 'gitflow', scene: 'init', command: 'git init', title: 'เริ่มติดตามโฟลเดอร์' },
 ]
 ```
-`prefix` ใช้ใส่เครื่องหมายนำหน้า เช่น `−` · dot nav และสไลด์บทถัดไปสร้างอัตโนมัติ
+`gitflow` เป็นข้อมูลล้วน: ระบุ scene, คำสั่งที่แสดงในเทอร์มินัล และคำอธิบายภาษาไทย
 
 ## ไฟล์หลัก
 
