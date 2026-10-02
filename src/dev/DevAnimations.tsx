@@ -1,7 +1,8 @@
-import { GitFlow, HttpExchange, LlmFlow } from '@/shared/components/organisms'
+import { GitFlow, HttpExchange, LlmFlow, TerminalFlow } from '@/shared/components/organisms'
 import { SeenContext } from '@/shared/hooks'
 import { gitFlowScenes } from '@/shared/animation/gitflow'
 import { llmFlowScenes } from '@/shared/animation/llmflow'
+import { terminalScenes } from '@/shared/animation/terminal'
 import type { LlmFlowSceneId } from '@/shared/types/slide'
 import { Demo, DevLayout, Section } from './DevLayout'
 
@@ -36,6 +37,15 @@ export default function DevAnimations() {
           {Object.entries(llmFlowScenes).map(([sceneId, scene]) => (
             <Demo key={sceneId} name={scene.title}>
               <LlmFlow sceneId={sceneId as LlmFlowSceneId} />
+            </Demo>
+          ))}
+        </SeenContext>
+      </Section>
+      <Section title="TerminalFlow" note="ทุก scene ที่ลงทะเบียนจะแสดงที่นี่โดยอัตโนมัติ">
+        <SeenContext value={true}>
+          {Object.entries(terminalScenes).map(([sceneId, scene]) => (
+            <Demo key={sceneId} name={scene.title}>
+              <TerminalFlow sceneId={sceneId} command={scene.command} />
             </Demo>
           ))}
         </SeenContext>
