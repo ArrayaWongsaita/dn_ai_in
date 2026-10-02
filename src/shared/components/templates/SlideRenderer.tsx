@@ -4,6 +4,7 @@ import { CoverSlide } from './CoverSlide'
 import { StatSlide } from './StatSlide'
 import { StatementSlide } from './StatementSlide'
 import { GitflowSlide } from './GitflowSlide'
+import { LlmflowSlide } from './LlmflowSlide'
 
 /** SlideData → template. The `never` check makes a missing case a compile error. */
 export function SlideRenderer({ slide }: { slide: SlideData }) {
@@ -13,6 +14,7 @@ export function SlideRenderer({ slide }: { slide: SlideData }) {
     case 'statement': return <StatementSlide {...slide} />
     case 'compare': return <CompareSlide {...slide} />
     case 'gitflow': return <GitflowSlide {...slide} />
+    case 'llmflow': return <LlmflowSlide {...slide} />
     default: { const _exhaustive: never = slide; return _exhaustive }
   }
 }

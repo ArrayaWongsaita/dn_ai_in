@@ -1,6 +1,6 @@
 # Content index
 
-รวม 1 บท · 18 สไลด์
+รวม 2 บท · 20 สไลด์
 
 > สร้างอัตโนมัติจาก `src/content/` ด้วย `pnpm content:index` — **ห้ามแก้ด้วยมือ** (ภาพรวมเชิงเล่าเรื่องอยู่ใน `docs/content-map.md`)
 
@@ -26,3 +26,10 @@
 16. **GitFlow** scene=clone · command=git clone https://github.com/example/site.git — คัดลอก repository มาเริ่มงาน · clone นำ commit และไฟล์จาก GitHub มาไว้ในเครื่อง
 17. **GitFlow** scene=pull · command=git pull origin main — ดึงงานล่าสุดจาก GitHub · pull นำ commit ใหม่จาก remote เข้ามาและอัปเดตไฟล์ในเครื่อง
 18. **ข้อความ** ชีตคำสั่ง Git — git init — ให้ Git เริ่มติดตามโฟลเดอร์ · git status — ดูสถานะไฟล์ ↵ git add style.css — เตรียมไฟล์เข้า commit · git commit -m "Add project files" — บันทึก snapshot ↵ git commit -m "Add stylesheet" — บันทึก snapshot · git log --oneline — ดูประวัติแบบย่อ ↵ git restore app.js — คืนไฟล์จาก commit ล่าสุด · git branch feature — สร้างสายงาน feature ↵ git switch feature — สลับไปสายงาน feature · git merge feature — รวม feature เข้าสายงานปัจจุบัน ↵ git remote add origin https://github.com/example/site.git — ตั้งชื่อ URL ปลายทาง ↵ git push origin main — ส่ง commit ขึ้น GitHub ↵ git clone https://github.com/example/site.git — คัดลอก repository ลงเครื่อง ↵ git pull origin main — ดึง commit ล่าสุดจาก GitHub
+
+## 2. LLM คืออะไร — `/llm-basics`
+
+สิ่งที่ตอบคุณอยู่ทำงานอย่างไร ตั้งแต่ prompt ถึงคำตอบ · 2 สไลด์ · `src/content/chapters/llm-basics/slides.ts`
+
+1. **ปก** LLM คืออะไร — สิ่งที่ตอบคุณอยู่ทำงานอย่างไร · จาก prompt ถึงคำตอบ
+2. **llmflow**
