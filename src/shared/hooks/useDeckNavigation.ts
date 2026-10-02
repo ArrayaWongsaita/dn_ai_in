@@ -2,6 +2,7 @@ import { useEffect, useState, type RefObject } from 'react'
 
 const NEXT = ['ArrowRight', 'ArrowDown', 'PageDown', ' ']
 const PREV = ['ArrowLeft', 'ArrowUp', 'PageUp']
+const CONTROL = 'button, input, select, textarea, a[href], [role="button"], [role="link"], [role="slider"]'
 
 const slidesOf = (el: HTMLElement | null) => [...(el?.querySelectorAll<HTMLElement>('[data-slide]') ?? [])]
 
@@ -36,6 +37,7 @@ export function useDeckNavigation(root: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return
+      if (e.target instanceof Element && e.target.closest(CONTROL)) return
       if (NEXT.includes(e.key)) { e.preventDefault(); scrollToSlide(root.current, current + 1) }
       if (PREV.includes(e.key)) { e.preventDefault(); scrollToSlide(root.current, current - 1) }
     }
