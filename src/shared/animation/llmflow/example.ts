@@ -16,7 +16,11 @@ export const llmFlowExample = {
     { id: 'summary', text: 'สรุป', probability: 0.23 },
     { id: 'file', text: 'ไฟล์', probability: 0.11 },
   ] satisfies LlmFlowCandidate[],
-  answer: ['1.', ' สรุป', ' ', 'app.js', '…'],
+  answer: [
+    '1.', ' สรุป', 'การทำงาน', 'โดยรวม',
+    '\n2.', ' อธิบาย', 'ฟังก์ชัน', 'สำคัญ',
+    '\n3.', ' แนะนำ', 'จุด', 'ที่ปรับได้',
+  ],
   context: [
     { id: 'ask', text: 'คุณ: สรุปไฟล์ app.js ให้เป็น 3 ข้อ' },
     { id: 'reply', text: 'LLM: ได้เลย กำลังอ่านไฟล์…' },

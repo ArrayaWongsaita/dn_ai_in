@@ -1,6 +1,6 @@
 # Content index
 
-รวม 2 บท · 20 สไลด์
+รวม 2 บท · 23 สไลด์
 
 > สร้างอัตโนมัติจาก `src/content/` ด้วย `pnpm content:index` — **ห้ามแก้ด้วยมือ** (ภาพรวมเชิงเล่าเรื่องอยู่ใน `docs/content-map.md`)
 
@@ -29,7 +29,10 @@
 
 ## 2. LLM คืออะไร — `/llm-basics`
 
-สิ่งที่ตอบคุณอยู่ทำงานอย่างไร ตั้งแต่ prompt ถึงคำตอบ · 2 สไลด์ · `src/content/chapters/llm-basics/slides.ts`
+สิ่งที่ตอบคุณอยู่ทำงานอย่างไร ตั้งแต่ prompt ถึงคำตอบ · 5 สไลด์ · `src/content/chapters/llm-basics/slides.ts`
 
 1. **ปก** LLM คืออะไร — สิ่งที่ตอบคุณอยู่ทำงานอย่างไร · จาก prompt ถึงคำตอบ
 2. **llmflow**
+3. **llmflow**
+4. **llmflow**
+5. **llmflow**
