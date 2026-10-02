@@ -137,3 +137,10 @@
 - https://css-tricks.com/gsap-is-now-completely-free-even-for-commercial-use/
 - https://webflow.com/blog/gsap-becomes-free
 - https://motion.dev/docs/react-reduce-bundle-size
+
+## 8. กลไก LLM (บท B4 — ใช้เขียนเนื้อหา ไม่ใช่ `src` บนสไลด์)
+
+- 3Blue1Brown — "But what is a GPT? Visual intro to transformers": https://www.3blue1brown.com/lessons/gpt — ใช้ทำความเข้าใจภาพรวมว่าประโยคไหลผ่านโมเดลอย่างไรและ token ถูกทำนายทีละชิ้น
+- Anthropic Claude Platform Docs — "Token counting": https://platform.claude.com/docs/en/build-with-claude/token-counting — ใช้ยืนยันคำอธิบายว่า token ไม่เท่ากับคำ
+- Jay Alammar — "The Illustrated Transformer": https://jalammar.github.io/illustrated-transformer/ — ใช้อธิบายว่าทำไมคำตอบเกิดจากการเลือกจากความน่าจะเป็น (ใช้เฉพาะ intuition ไม่ลงลึกบนสไลด์)
+- Andrej Karpathy — "[1hr Talk] Intro to Large Language Models": https://www.youtube.com/watch?v=zjkBMFhNj_g — ใช้ตรวจ mental model "ทำนายชิ้นถัดไป" และความต่างของการเทรนกับการเข้าถึงข้อมูลขณะตอบ
