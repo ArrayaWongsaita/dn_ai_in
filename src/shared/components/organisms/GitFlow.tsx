@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Stack, Text } from '@/shared/components/atoms'
-import { TimelineControls } from '@/shared/components/molecules'
+import { Terminal, TimelineControls } from '@/shared/components/molecules'
 import { gitFlowScenes, type GitFlowZoneId } from '@/shared/animation/gitflow'
 import { useTimeline } from '@/shared/hooks'
 import s from './GitFlow.module.css'
@@ -57,19 +57,7 @@ export function GitFlow({ sceneId, command }: { sceneId: string; command: string
               </Fragment>
             ))}
           </div>
-          <section className={s.terminal} aria-label="เทอร์มินัลจำลอง">
-            <span className={s.terminalTitle}>เทอร์มินัล</span>
-            {command && <code
-              className={s.command}
-              data-el="terminal-command"
-              data-revealed-fraction="0"
-            >$ {command}</code>}
-            {scene.state.output && <pre
-              className={s.output}
-              data-el="terminal-output"
-              data-revealed-fraction="0"
-            >{scene.state.output}</pre>}
-          </section>
+          <Terminal command={command} output={scene.state.output} />
         </Stack>
       </div>
       <div className={s.caption} aria-live="polite">
