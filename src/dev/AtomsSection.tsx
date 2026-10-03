@@ -1,4 +1,4 @@
-import { AppLink, Badge, BigNumber, Button, Code, Divider, Dot, Heading, Kbd, Kicker, Pill, ProgressBar, Source, Stack, Swatch, Text } from '@/shared/components/atoms'
+import { AppLink, Badge, BigNumber, Button, Code, Divider, Dot, Heading, Icon, Kbd, Kicker, Pill, ProgressBar, Source, Stack, Swatch, Text } from '@/shared/components/atoms'
 import { Demo, Section } from './DevLayout'
 import s from './Dev.module.css'
 
@@ -45,6 +45,19 @@ export function AtomsSection() {
       </Demo>
       <Demo name="Code / Kbd">
         <Text>เมธอด <Code>GET</Code> · กด <Kbd>→</Kbd> เพื่อไปสไลด์ถัดไป</Text>
+      </Demo>
+      <Demo name="Icon name=check | warning | bulb (decorative / labelled)">
+        <div className={s.row}>
+          <Icon name="check" decorative />
+          <Icon name="warning" decorative />
+          <Icon name="bulb" decorative />
+        </div>
+        <div className={s.row}>
+          <Icon name="check" label="สำเร็จ" />
+          <Icon name="warning" label="คำเตือน" />
+          <Icon name="bulb" label="แนวคิดหลัก" />
+        </div>
+        <Text variant="muted">ตัวใหญ่: <Icon name="bulb" decorative /> สเกลตามตัวอักษร ลากเส้นตามสีข้อความ</Text>
       </Demo>
       <Demo name="ProgressBar"><ProgressBar value={60} label="ความคืบหน้า 60%" /></Demo>
       <Demo name="Divider"><Divider /></Demo>
