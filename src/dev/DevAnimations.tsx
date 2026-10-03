@@ -5,11 +5,17 @@ import { llmFlowScenes } from '@/shared/animation/llmflow'
 import { terminalScenes } from '@/shared/animation/terminal'
 import type { LlmFlowSceneId } from '@/shared/types/slide'
 import { Demo, DevLayout, Section } from './DevLayout'
+import { HeldTimelineDemo } from './HeldTimelineDemo'
 
 /** /dev/animations — GSAP-driven explainers with dummy data. Each one is a reusable organism. */
 export default function DevAnimations() {
   return (
     <DevLayout title="Animations">
+      <Section title="Held timeline" note="ค้างที่คำถาม รวมถึง reduced-motion · กดถัดไปเพื่อดูเฉลย">
+        <SeenContext value={true}>
+          <Demo name="hold: true"><HeldTimelineDemo /></Demo>
+        </SeenContext>
+      </Section>
       <Section title="HttpExchange" note="Request → Response (packet วิ่งพร้อม trail, เอียงตามแรงวิ่ง, ผ่าน relay 2 จุด) · เล่นอัตโนมัติ, หยุด/ขั้นตอน/ลากดูได้ · prefers-reduced-motion จะข้ามไปเฟรมสุดท้าย">
         <SeenContext value={true}>
           <Demo name="GET → 200 OK">
