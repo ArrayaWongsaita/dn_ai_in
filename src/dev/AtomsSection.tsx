@@ -33,15 +33,29 @@ export function AtomsSection() {
           <Button variant="ghost" onClick={() => {}}>ข้าม</Button>
         </div>
       </Demo>
-      <Demo name="Button size=sm | disabled | to (link)">
+      <Demo name="Button size=sm | disabled | to (link) — Tab เพื่อดู focus ring">
         <div className={s.row}>
           <Button size="sm" onClick={() => {}}>เล็ก</Button>
           <Button disabled>ปิดใช้งาน</Button>
+          <Button variant="secondary" disabled>ปิดใช้งาน</Button>
+          <Button variant="ghost" disabled>ปิดใช้งาน</Button>
           <Button variant="secondary" to="/dev">ไปหน้า /dev</Button>
         </div>
       </Demo>
-      <Demo name="Badge tone=neutral | accent">
-        <div className={s.row}><Badge>HTML</Badge><Badge tone="accent">สำคัญ</Badge></div>
+      <Demo name="Badge tone=neutral | accent | new | hot | code">
+        <div className={s.row}>
+          <Badge>HTML</Badge>
+          <Badge tone="accent">สำคัญ</Badge>
+          <Badge tone="new">ใหม่</Badge>
+          <Badge tone="hot">ยอดนิยม</Badge>
+          <Badge tone="code">tsx</Badge>
+        </div>
+        <div className={s.surface}>
+          <Text variant="muted">บนพื้น surface —</Text>
+          <Badge tone="new">ใหม่</Badge>
+          <Badge tone="hot">ยอดนิยม</Badge>
+          <Badge>HTML</Badge>
+        </div>
       </Demo>
       <Demo name="Code / Kbd">
         <Text>เมธอด <Code>GET</Code> · กด <Kbd>→</Kbd> เพื่อไปสไลด์ถัดไป</Text>
