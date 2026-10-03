@@ -1,23 +1,18 @@
 import { Fragment } from 'react'
 import { Badge, Stack, Text } from '@/shared/components/atoms'
 import { TimelineControls } from '@/shared/components/molecules'
-import { llmFlowScenes, type LlmFlowSceneDefinition } from '@/shared/animation/llmflow'
+import { llmFlowScenes } from '@/shared/animation/llmflow'
 import type { LlmFlowSceneId } from '@/shared/types/slide'
 import { useTimeline } from '@/shared/hooks'
 import s from './LlmFlow.module.css'
-
-/** Typed lookup until every scene is registered (ticket 03 flips the registry to a full Record). */
-const scenes = llmFlowScenes as Partial<Record<LlmFlowSceneId, LlmFlowSceneDefinition>>
 
 /**
  * The shared LLM cycle diagram plus whichever sections the scene state provides, driven by the
  * scene's GSAP timeline. New scenes add state, not JSX — see LlmFlowSceneState for the hooks.
  */
 export function LlmFlow({ sceneId }: { sceneId: LlmFlowSceneId }) {
-  const scene = scenes[sceneId]
-  if (!scene) throw new Error(`Unknown LlmFlow scene: ${sceneId}`)
-  const [scope, tl] = useTimeline(scene.build)
-  const { state } = scene
+  const { state, build } = llmFlowScenes[sceneId]
+  const [scope, tl] = useTimeline(build)
 
   return (
     <Stack gap="md">
@@ -79,6 +74,7 @@ export function LlmFlow({ sceneId }: { sceneId: LlmFlowSceneId }) {
                   data-el={`candidate-${candidate.id}`}
                   data-selected={candidate.selected ? 'true' : undefined}
                   data-wrong={candidate.wrong ? 'true' : undefined}
+                  data-correct={candidate.correct ? 'true' : undefined}
                 >
                   <code className={s.candidateText}>{candidate.text}</code>
                   <span className={s.candidateBar}>

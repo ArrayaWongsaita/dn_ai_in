@@ -1,14 +1,9 @@
 import { dur, ease } from '../motion'
-import { llmFlowExample } from './example'
+import { baseParts } from './example'
 import type { LlmFlowSceneDefinition, LlmFlowSceneState } from './index'
 
 const overviewState: LlmFlowSceneState = {
-  parts: [
-    { id: 'prompt', label: 'Prompt', note: 'ข้อความที่คุณพิมพ์', sample: llmFlowExample.prompt },
-    { id: 'token', label: 'Token', note: 'ข้อความถูกตัดเป็นชิ้น', sample: 'app · .js · 3' },
-    { id: 'model', label: 'โมเดล', note: 'ทำนายชิ้นถัดไปจากความน่าจะเป็น', sample: '?' },
-    { id: 'answer', label: 'คำตอบ', note: 'ต่อชิ้นที่เลือกทีละชิ้น', sample: '…' },
-  ],
+  parts: baseParts(),
   caption: 'prompt ถูกตัดเป็น token โมเดลทำนายชิ้นถัดไปแล้วต่อเป็นคำตอบ วนซ้ำจนได้ครบ',
 }
 

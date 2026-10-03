@@ -1,16 +1,10 @@
 import { dur, ease } from '../motion'
-import { llmFlowExample } from './example'
-import type { LlmFlowContextItem, LlmFlowPart, LlmFlowSceneDefinition, LlmFlowSceneState } from './index'
-
-const parts: LlmFlowPart[] = [
-  { id: 'prompt', label: 'Prompt', note: 'ข้อความที่คุณพิมพ์', sample: llmFlowExample.prompt },
-  { id: 'token', label: 'Token', note: 'ข้อความถูกตัดเป็นชิ้น', sample: 'app · .js · 3' },
-  { id: 'model', label: 'โมเดล', note: 'ทำนายชิ้นถัดไปจากความน่าจะเป็น', sample: '?', active: true },
-  { id: 'answer', label: 'คำตอบ', note: 'ต่อชิ้นที่เลือกทีละชิ้น' },
-]
+import { baseParts, llmFlowExample } from './example'
+import { revealVerdict } from './reveal'
+import type { LlmFlowContextItem, LlmFlowSceneDefinition, LlmFlowSceneState } from './index'
 
 const contextState: LlmFlowSceneState = {
-  parts,
+  parts: baseParts('model'),
   context: llmFlowExample.context,
   verdict: 'ส่วนที่ขีดฆ่าคือบทสนทนาที่หลุดออกนอก Context window — โมเดลมองไม่เห็นส่วนนั้นแล้ว',
   caption: 'Context window จำกัดจำนวน token ที่โมเดลมองเห็นในรอบเดียว — บทสนทนายาวจนของเก่าหลุดขอบ โมเดลจึงมองไม่เห็นส่วนนั้นและคุณภาพคำตอบตกเมื่อคุยยาว',
@@ -56,11 +50,7 @@ export function buildContextTimeline(tl: gsap.core.Timeline) {
       y: drops.get(item.id), duration: dur.base, ease: ease.out, immediateRender: false,
     })
   }
-  tl.addLabel('verdict').fromTo('[data-el="verdict"]', {
-    opacity: 0, y: 8,
-  }, {
-    opacity: 1, y: 0, duration: dur.fast, ease: ease.out,
-  })
+  revealVerdict(tl)
 }
 
 export const context: LlmFlowSceneDefinition = {

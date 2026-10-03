@@ -1,19 +1,19 @@
 import { dur, ease } from '../motion'
-import { llmFlowExample } from './example'
-import type { LlmFlowPart, LlmFlowSceneDefinition, LlmFlowSceneState } from './index'
+import { baseParts, llmFlowExample } from './example'
+import { revealPrompt, revealVerdict } from './reveal'
+import type { LlmFlowSceneDefinition, LlmFlowSceneState } from './index'
 
-const parts: LlmFlowPart[] = [
-  { id: 'prompt', label: 'Prompt', note: 'ข้อความที่คุณพิมพ์', sample: llmFlowExample.prompt },
-  { id: 'token', label: 'Token', note: 'ข้อความถูกตัดเป็นชิ้น', sample: 'app · .js · 3' },
-  { id: 'model', label: 'โมเดล', note: 'ทำนายชิ้นถัดไปจากความน่าจะเป็น', sample: '?' },
-  { id: 'answer', label: 'คำตอบ', note: 'ต่อชิ้นที่เลือกทีละชิ้น', sample: '…', active: true },
-]
-
-/** Last answer piece of each of the three items — after these the loop arrow pulses back to predict. */
-const itemEndPieces = new Set([3, 7])
+/** Pieces per summary item in llmFlowExample.answer — after each item's last piece the loop arrow pulses back to predict, except the final item, which ends the answer instead. */
+const piecesPerItem = 4
+const itemEndPieces = new Set(
+  llmFlowExample.answer
+    .map((_, i) => i)
+    .filter((i) => (i + 1) % piecesPerItem === 0)
+    .slice(0, -1),
+)
 
 const loopState: LlmFlowSceneState = {
-  parts,
+  parts: baseParts('answer'),
   prompt: llmFlowExample.prompt,
   answer: llmFlowExample.answer,
   caption: 'ชิ้นที่เลือกถูกต่อท้ายคำตอบ แล้ววนกลับไปทำนายชิ้นถัดไป จนได้ครบสามข้อ',
@@ -22,11 +22,7 @@ const loopState: LlmFlowSceneState = {
 
 /** Appends each predicted piece, pulsing the loop arrow between items, until all three items are complete. */
 export function buildLoopTimeline(tl: gsap.core.Timeline) {
-  tl.addLabel('prompt').fromTo('[data-el="prompt"]', {
-    opacity: 0, y: 12,
-  }, {
-    opacity: 1, y: 0, duration: dur.fast, ease: ease.out,
-  })
+  revealPrompt(tl)
   for (const [i] of llmFlowExample.answer.entries()) {
     tl.addLabel(`piece-${i}`).fromTo(`[data-el="answer-piece-${i}"]`, {
       opacity: 0,
@@ -41,11 +37,7 @@ export function buildLoopTimeline(tl: gsap.core.Timeline) {
       immediateRender: false,
     })
   }
-  tl.addLabel('done').fromTo('[data-el="verdict"]', {
-    opacity: 0, y: 8,
-  }, {
-    opacity: 1, y: 0, duration: dur.fast, ease: ease.out,
-  })
+  revealVerdict(tl, 'done')
 }
 
 export const loop: LlmFlowSceneDefinition = {

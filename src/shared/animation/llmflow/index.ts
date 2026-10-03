@@ -27,10 +27,12 @@ export interface LlmFlowCandidate {
   text: string
   /** Simulated probability 0..1 — the organism labels these numbers as ตัวอย่าง. */
   probability: number
-  /** Short verdict shown next to the candidate (e.g. ผิด) so meaning never lives in colour alone. */
+  /** Short verdict shown next to the candidate (e.g. ถูกจริง, น่าเชื่อแต่ผิด) so meaning never lives in colour alone. */
   note?: string
   selected?: boolean
   wrong?: boolean
+  /** Marks the truly correct piece in the wrong scene, so the premise — ถูกจริง vs น่าเชื่อแต่ผิด — is visible. */
+  correct?: boolean
 }
 
 export interface LlmFlowContextItem { id: string; text: string; overflow?: boolean }

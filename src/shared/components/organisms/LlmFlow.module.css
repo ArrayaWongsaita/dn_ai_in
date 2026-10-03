@@ -84,6 +84,7 @@
 
 .candidate[data-selected='true'] { border-color: var(--accent); }
 .candidate[data-wrong='true'] { border-style: dashed; }
+.candidate[data-correct='true'] { border-style: double; border-width: 3px; }
 
 .candidateText { color: var(--fg); font-size: var(--fs-small); }
 .candidateBar {
