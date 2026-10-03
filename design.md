@@ -70,9 +70,12 @@
 | **Compare** | `title` + `items[]` (กล่องสี) | เทียบสองสิ่ง เช่น สีเข้ม vs สีนุ่ม |
 | **GitFlow** | `scene` + `command` + `title` (+ `sub`) | แสดงคำสั่ง Git ด้วยภาพสี่พื้นที่และเทอร์มินัล |
 | **LLMFlow** | `scene` + `title` (+ `sub`) | ภาพวงจร LLM จาก scene registry |
+| **WebFlow** | `scene` + `title` (+ `sub`, `think`, `http`, `src`) | กระบวนการเว็บจาก scene registry: client-server, dns, http-200/404, build-html/css/js, mpa/spa, api-db |
 | **Terminal** | `scene` + `command` + `title` (+ `sub`) | แสดงคำสั่งในจอเทอร์มินัลคู่แผนผังโฟลเดอร์ที่เปลี่ยนตามคำสั่ง |
 
 GitFlow ใช้ scene จาก registry ใน `src/shared/animation/gitflow/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงผลลัพธ์เดียวกับสถานะของไฟล์ ส่วน LLMFlow ใช้กลไกเดียวกัน โดย scene มาจาก `src/shared/animation/llmflow/` — title/sub ของ slide ต้องตรงกับสิ่งที่ timeline แสดง
+
+WebFlow ใช้ registry ใน `src/shared/animation/webflow/`; caption ต้องตรงกับภาพและขั้นของ timeline. `http` override ใช้ได้เฉพาะฉาก HTTP และส่งข้อมูลให้ HttpExchange. `think` ใช้เฉพาะ build-html/mpa: หยุดไว้ก่อนเฉลยจนผู้เรียนกดควบคุมเอง แม้เปิด reduced-motion.
 
 Terminal ใช้ scene จาก registry ใน `src/shared/animation/terminal/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงคำสั่งพร้อมผลต่อโฟลเดอร์/ไฟล์ในแผนผัง
 

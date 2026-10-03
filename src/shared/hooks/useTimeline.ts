@@ -23,9 +23,13 @@ const EMPTY = { time: 0, duration: 0, playing: false, stops: [] as number[] }
 /**
  * Builds a paused GSAP timeline scoped to `scope`, plays it when its slide is first seen (or jumps
  * to the end frame for reduced motion), and returns `[scope, controls]` — attach `scope` to the diagram root.
+ * With `hold`, starts paused at the first frame even for reduced motion; manual controls still work.
  * (A tuple, not an object: React Compiler rejects reading properties off an object that holds a ref.) Labels added in `build` become the step stops.
  */
-export function useTimeline(build: (tl: gsap.core.Timeline) => void): [RefObject<HTMLDivElement | null>, TimelineApi] {
+export function useTimeline(
+  build: (tl: gsap.core.Timeline) => void,
+  { hold = false }: { hold?: boolean } = {},
+): [RefObject<HTMLDivElement | null>, TimelineApi] {
   const scope = useRef<HTMLDivElement>(null)
   const tlRef = useRef<gsap.core.Timeline | null>(null)
   const seen = useSeen()
@@ -41,13 +45,13 @@ export function useTimeline(build: (tl: gsap.core.Timeline) => void): [RefObject
     build(tl)
     tlRef.current = tl
     const stops = Object.values(tl.labels).sort((a, b) => a - b)
-    if (reduced) tl.progress(1)
+    if (reduced && !hold) tl.progress(1)
     setS({ time: tl.time(), duration: tl.duration(), playing: false, stops })
   }, { scope })
 
   useEffect(() => {
     const tl = tlRef.current
-    if (!tl) return
+    if (!tl || hold) return
     if (reduced) {
       tl.progress(1)
       return
@@ -58,7 +62,7 @@ export function useTimeline(build: (tl: gsap.core.Timeline) => void): [RefObject
     }
     if (tl.progress() === 1) tl.restart()
     else tl.play()
-  }, [reduced, seen])
+  }, [hold, reduced, seen])
 
   const jump = (time: number) => {
     const tl = tlRef.current

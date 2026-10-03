@@ -1,0 +1,12 @@
+.page { padding: var(--gap-md); border: 1px solid var(--accent); border-radius: var(--radius); background: var(--bg); }
+.header { color: var(--accent); border-bottom: 1px solid var(--line); padding-bottom: var(--gap-sm); }
+.link { font-size: var(--fs-small); text-decoration: underline; }
+.body { display: grid; }
+.panel { grid-area: 1 / 1; }
+.newBody, .packet, .answer { opacity: 0; visibility: hidden; }
+.columns { display: flex; flex-wrap: wrap; gap: var(--gap-md); }
+.column { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); padding: var(--gap-sm); }
+.card { border: 1px solid var(--accent); border-radius: var(--radius); padding: var(--gap-sm); overflow-wrap: anywhere; }
+.exchange { display: flex; align-items: center; gap: var(--gap-md); }
+.packets { flex: 1; overflow: hidden; }
+.packet { display: block; width: fit-content; color: var(--accent); font-size: var(--fs-small); }

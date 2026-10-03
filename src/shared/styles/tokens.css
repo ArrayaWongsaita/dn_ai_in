@@ -4,6 +4,8 @@
   --bg: #f7f5f0; --fg: #2b2a26; --muted: #5e5b52; --accent: #6b3fc0; --line: #2b2a2622;
 
   --font-sans: "Noto Sans Thai", "Sarabun", system-ui, sans-serif;
+  --fs-webflow-body: 18px;
+  --fs-webflow-title: clamp(30px, 3vw, 40px);
   --fs-body: clamp(18px, 1.6vw, 24px);
   --fs-label: 1.35em;
   --fs-small: 0.75em;

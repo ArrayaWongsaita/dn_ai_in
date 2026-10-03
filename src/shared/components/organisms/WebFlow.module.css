@@ -1,0 +1,2 @@
+/* Keep example hosts readable inside the shared fixed-width diagram nodes. */
+.diagram { overflow-wrap: anywhere; }

@@ -23,6 +23,26 @@ export type LlmFlowSceneId = 'overview' | 'tokenize' | 'predict' | 'loop' | 'con
 
 export interface LlmFlowData { type: 'llmflow'; scene: LlmFlowSceneId; title: string; sub?: string }
 
+/** HTTP scenes share the existing request/response diagram. */
+export type WebFlowSceneId = 'client-server' | 'dns' | 'http-200' | 'http-404' | 'build-html' | 'build-css' | 'build-js' | 'mpa' | 'spa' | 'api-db'
+export interface WebFlowHttpData {
+  method?: string
+  path?: string
+  status?: number
+  host?: string
+}
+interface WebflowBase {
+  type: 'webflow'
+  title: string
+  sub?: string
+  src?: string
+}
+/** Think scenes reveal answers on demand and cannot carry HTTP data. */
+export type WebflowData = WebflowBase & (
+  | { scene: Extract<WebFlowSceneId, 'build-html' | 'mpa'>; think: true; http?: never }
+  | { scene: WebFlowSceneId; think?: false; http?: WebFlowHttpData }
+)
+
 export interface TerminalData { type: 'terminal'; scene: string; command: string; title: string; sub?: string }
 
 export type SlideData =
@@ -32,6 +52,7 @@ export type SlideData =
   | CompareData
   | GitFlowData
   | LlmFlowData
+  | WebflowData
   | TerminalData
 
 export interface NextChapter { to: string; title: string }

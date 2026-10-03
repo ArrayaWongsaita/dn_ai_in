@@ -153,3 +153,18 @@
 
 แหล่ง:
 - https://git-scm.com/downloads
+
+## 10. เว็บทำงานอย่างไร (A1a — ตรวจแหล่งต้นฉบับ 2026-10-03)
+
+ทุก `src` ของ 18 สไลด์ใน `web-basics` อยู่ในรายการนี้; TaskFlow, IP, เส้นทาง, งานและ JSON เป็นข้อมูลสมมติ ไม่ใช่ข้อมูลบริการจริง
+
+| สไลด์ / ข้อเท็จจริง | แหล่งต้นฉบับที่ใช้ใน src |
+|---|---|
+| DNS: หาที่อยู่ IP จากชื่อโดเมนก่อนขอทรัพยากร; อาจมี cache | [MDN · How browsers work · DNS lookup](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work#dns_lookup) |
+| HTTP 200: request สำเร็จ; ตัวอย่าง GET ตอบ HTML | [RFC 9110 §15.3.1 · 200 OK](https://www.rfc-editor.org/rfc/rfc9110.html#name-200-ok) |
+| HTTP 404: ไม่พบสิ่งที่ขอ; ยังเป็น response จาก server | [RFC 9110 §15.5.5 · 404 Not Found](https://www.rfc-editor.org/rfc/rfc9110.html#name-404-not-found) |
+| SPA และตาราง MPA/SPA: JS เปลี่ยนเนื้อหาของหน้าเดียว และขอข้อมูลเพิ่มได้ | [MDN · SPA](https://developer.mozilla.org/en-US/docs/Glossary/SPA) |
+| API/ฐานข้อมูล: browser ขอข้อมูลจาก server; server อ่านฐานข้อมูลและตอบข้อมูล เช่น JSON | [MDN · Client-server overview](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview) |
+| Next.js: โหลดหน้าแรกจาก server และใช้ client navigation สำหรับลิงก์ภายในได้ | [Next.js · Linking and Navigating](https://nextjs.org/docs/app/getting-started/linking-and-navigating) |
+
+การสอนลดรายละเอียดเหลือคำขอ → คำตอบ และแยก HTML/CSS/JS เพื่อให้ผู้เริ่มต้นเห็นหน้าที่ ไม่ลง TCP/TLS, REST หรือ SSR/CSR เชิงลึก. Next.js เป็นคำอธิบายพฤติกรรม ไม่ผูกหมายเลขเวอร์ชัน; ตรวจเอกสารก่อนสอนซ้ำ. ตัวอย่าง API ใช้ JSON แต่ API โดยทั่วไปไม่ได้จำกัดว่าต้องตอบ JSON เสมอ.

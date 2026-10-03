@@ -51,7 +51,7 @@ dev   → shared (ห้ามใช้เนื้อหาจริง)
 | **atoms** | องค์ประกอบเดี่ยว ไม่รู้บริบท | `Heading` `Text` `Kicker` `Source` `BigNumber` `Stack` `Screen` `Pill` `Dot` `Swatch` `AppLink` | hooks, lib, types |
 | **molecules** | atoms รวมเป็นหน้าที่เดียว | `CountUp` `StatBlock` `NavDots` `ThemeToggle` `ChromeBar` `SwatchRow` `TocItem` | atoms |
 | **organisms** | ส่วนของหน้าที่มีพฤติกรรม | `SlideFrame` `Deck` `TocList` | atoms, molecules |
-| **templates** | จับ SlideData มาเป็นสไลด์ | `CoverSlide` `StatSlide` `StatementSlide` `CompareSlide` `GitflowSlide` `EndSlide` `SlideRenderer` `SlideDeck` | atoms, molecules, organisms |
+| **templates** | จับ SlideData มาเป็นสไลด์ | `CoverSlide` `StatSlide` `StatementSlide` `CompareSlide` `GitflowSlide` `WebflowSlide` `EndSlide` `SlideRenderer` `SlideDeck` | atoms, molecules, organisms |
 
 🔒 layer ล่างห้าม import layer ที่อยู่สูงกว่า (`no-restricted-imports` ใน `eslint.config.js`)
 
@@ -134,3 +134,7 @@ content/chapters/x/slides.ts  ──(lazy import)──►  ChapterPage
 - [ ] เปิดบทที่แก้ ดูทั้ง light และ dark
 - [ ] component/สไลด์ใหม่มีตัวอย่างใน `/dev`
 - [ ] ตัวเลขใหม่มีแหล่งอ้างอิงใน `docs/research.md`
+
+## 6. WebFlow slide type
+
+`webflow` เป็นข้อมูลล้วนใน `SlideData`: `scene`, `title`, `sub`, `src`, `think`, `http`. `WebflowSlide` ประกอบ `WebFlow` ซึ่งเลือก organism จาก registry `shared/animation/webflow/`; ฉาก HTTP ใช้ `HttpExchange`. `http` override ใช้เฉพาะ http-200/http-404. `think` รองรับ build-html/mpa และเรียก `useTimeline` ด้วย hold เพื่อไม่เปิดเฉลยอัตโนมัติเมื่อ reduced-motion; การควบคุมด้วยมือยังทำงาน. ทุก 10 scene และสองฉากลองคิดมีตัวอย่างใน `/dev/animations`.
