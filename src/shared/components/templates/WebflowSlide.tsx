@@ -3,9 +3,9 @@ import { SlideFrame, WebFlow } from '@/shared/components/organisms'
 import type { WebflowData } from '@/shared/types/slide'
 
 /** A web walkthrough selected from the WebFlow scene registry. */
-export function WebflowSlide({ scene, title, sub, http }: WebflowData) {
+export function WebflowSlide({ scene, title, sub, http, src }: WebflowData) {
   return (
-    <SlideFrame>
+    <SlideFrame source={src}>
       <Stack gap="lg">
         <Stack gap="sm">
           <Heading>{title}</Heading>

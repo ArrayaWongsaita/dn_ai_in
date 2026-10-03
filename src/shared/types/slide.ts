@@ -36,6 +36,7 @@ export interface WebflowData {
   scene: WebFlowSceneId
   title: string
   sub?: string
+  src?: string
   http?: WebFlowHttpData
 }
 

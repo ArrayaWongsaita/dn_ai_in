@@ -1,10 +1,19 @@
 # Content index
 
-รวม 3 บท · 42 สไลด์
+รวม 4 บท · 46 สไลด์
 
 > สร้างอัตโนมัติจาก `src/content/` ด้วย `pnpm content:index` — **ห้ามแก้ด้วยมือ** (ภาพรวมเชิงเล่าเรื่องอยู่ใน `docs/content-map.md`)
 
-## 1. เทอร์มินัล — `/terminal`
+## 1. เว็บทำงานอย่างไร — `/web-basics`
+
+จากคำขอของเบราว์เซอร์ถึงคำตอบของ server และหน้าเว็บที่เราเห็น · 4 สไลด์ · `src/content/chapters/web-basics/slides.ts`
+
+1. **ปก** เว็บทำงานอย่างไร — จากคำขอของเบราว์เซอร์ถึงหน้าเว็บที่เราเห็น
+2. **ข้อความ** สิ่งที่คุณเปิดทุกวันทำงานอย่างไร — เมื่อเปิดเว็บ เบราว์เซอร์เป็น client ที่ส่ง request (คำขอ) ไปยัง server แล้วรับ response (คำตอบ) กลับมา ↵ ลองดูตัวอย่าง TaskFlow: ขอหน้าบอร์ดงาน แล้ว server ตอบอะไร
+3. **WebFlow** scene=http-200 — HTTP 200 · ขอหน้าบอร์ดงานสำเร็จ · ตัวอย่าง: client ขอ /board ด้วย GET → server ตอบ 200 พร้อม HTML ของหน้าเว็บ ↵ 200 หมายถึงคำขอสำเร็จ · เลื่อนทีละขั้นเพื่อดู request และ response
+4. **WebFlow** scene=http-404 — HTTP 404 · ไม่พบหน้าที่ขอ · ตัวอย่าง: client ขอ /missing → server ตอบ 404 พร้อมหน้าข้อผิดพลาด ↵ 404 หมายถึงไม่พบสิ่งที่ขอ · คำตอบนี้ยังเป็น response จาก server
+
+## 2. เทอร์มินัล — `/terminal`
 
 พิมพ์คำสั่งพื้นฐานเพื่อเดินไปในโฟลเดอร์ · 10 สไลด์ · `src/content/chapters/terminal/slides.ts`
 
@@ -19,7 +28,7 @@
 9. **เทอร์มินัล** scene=rm · command=rm notes.txt — ลบไฟล์ที่ไม่ต้องการ · rm ลบไฟล์อย่างถาวร · ไฟล์ที่ลบไม่ลงถังขยะ จึงต้องตรวจชื่อให้ดีก่อนกด Enter
 10. **ข้อความ** ชีตคำสั่ง — pwd — ดูว่าตอนนี้อยู่โฟลเดอร์ไหน ↵ ls — ดูรายการไฟล์และโฟลเดอร์ในโฟลเดอร์ปัจจุบัน ↵ mkdir my-site — สร้างโฟลเดอร์ชื่อ my-site ↵ cd my-site — เข้าไปทำงานในโฟลเดอร์ my-site ↵ touch index.html style.css app.js notes.txt — สร้างไฟล์เปล่าทั้งสี่ ↵ rm notes.txt — ลบไฟล์ notes.txt อย่างถาวร ไม่ลงถังขยะ
 
-## 2. Git — `/git`
+## 3. Git — `/git`
 
 ปุ่มย้อนกลับให้โค้ด และพื้นที่ทำงานร่วมกัน · 18 สไลด์ · `src/content/chapters/git/slides.ts`
 
@@ -42,7 +51,7 @@
 17. **GitFlow** scene=pull · command=git pull origin main — ดึงงานล่าสุดจาก GitHub · pull นำ commit ใหม่จาก remote เข้ามาและอัปเดตไฟล์ในเครื่อง
 18. **ข้อความ** ชีตคำสั่ง Git — git init — ให้ Git เริ่มติดตามโฟลเดอร์ · git status — ดูสถานะไฟล์ ↵ git add style.css — เตรียมไฟล์เข้า commit · git commit -m "Add project files" — บันทึก snapshot ↵ git commit -m "Add stylesheet" — บันทึก snapshot · git log --oneline — ดูประวัติแบบย่อ ↵ git restore app.js — คืนไฟล์จาก commit ล่าสุด · git branch feature — สร้างสายงาน feature ↵ git switch feature — สลับไปสายงาน feature · git merge feature — รวม feature เข้าสายงานปัจจุบัน ↵ git remote add origin https://github.com/example/site.git — ตั้งชื่อ URL ปลายทาง ↵ git push origin main — ส่ง commit ขึ้น GitHub ↵ git clone https://github.com/example/site.git — คัดลอก repository ลงเครื่อง ↵ git pull origin main — ดึง commit ล่าสุดจาก GitHub
 
-## 3. LLM คืออะไร — `/llm-basics`
+## 4. LLM คืออะไร — `/llm-basics`
 
 สิ่งที่ตอบคุณอยู่ทำงานอย่างไร ตั้งแต่ prompt ถึงคำตอบ · 14 สไลด์ · `src/content/chapters/llm-basics/slides.ts`
 
