@@ -38,11 +38,43 @@ _Avoid_: temperature (ไม่สอนศัพท์นี้), randomness �
 เครื่องมือบรรทัดคำสั่งที่ห่อ LLM (Claude) เข้ากับไฟล์และ terminal ของผู้เรียน — เป็นตัวกลาง ไม่ใช่ LLM เอง
 _Avoid_: Claude (เมื่อหมายถึงเครื่องมือ), ChatGPT (ใช้เทียบเท่า)
 
+**Client**:
+ฝั่งที่ขอข้อมูล เช่น เบราว์เซอร์ของผู้เรียน
+_Avoid_: ลูกค้า (นอกการเปรียบเทียบร้านอาหาร), ผู้ใช้
+
+**Server**:
+เครื่องที่รับ request แล้วตอบ response
+_Avoid_: คลาวด์, เว็บไซต์
+
+**Request / Response**:
+คำขอจาก client / คำตอบจาก server พร้อม status code
+_Avoid_: ข้อความ, การโหลด
+
+**HTML / CSS / JS**:
+โครง / หน้าตา / พฤติกรรมของหน้าเว็บ — HTML เป็นภาษามาร์กอัป, CSS เป็นภาษากำหนดรูปแบบ, JavaScript เป็นภาษาโปรแกรม
+_Avoid_: ภาษาโปรแกรม (HTML และ CSS ไม่ใช่ภาษาโปรแกรม)
+
+**MPA (multi-page application)**:
+กดลิงก์แล้วขอ HTML และโหลดทั้งหน้าใหม่จาก server
+_Avoid_: เว็บแบบเก่า
+
+**SPA (single-page application)**:
+โหลดหน้าเดียว แล้ว JavaScript สลับเนื้อหาเอง และยังขอข้อมูลจาก server ได้
+_Avoid_: เว็บแบบใหม่
+
+**API**:
+ช่องทางให้โปรแกรมขอข้อมูลหรือการทำงานจากอีกโปรแกรม — ในตัวอย่างนี้หน้าเว็บขอ JSON จาก API บน server
+_Avoid_: เว็บเซอร์วิส, ฐานข้อมูล
+
 ### ศัพท์ของเด็ค (ใช้ในโค้ด/เอกสาร)
 
 **llmflow**:
 ชื่อ slide pattern ใหม่ของบทนี้ ทำหน้าที่เทียบเท่า `gitflow` — ภาพวงจรเดียวใช้ซ้ำหลายฉาก (scene)
 _Avoid_: LLM diagram, animation ชื่ออื่น
 
+**webflow**:
+ชื่อ slide pattern ของบทเว็บทำงานอย่างไร ใช้ scene registry; บาง scene ใช้บอร์ดเดิมซ้ำเพื่อเพิ่ม HTML/CSS/JS และบาง scene มีภาพกระบวนการของตัวเอง
+_Avoid_: web diagram, แผนภาพเว็บ
+
 **Scene**:
-หนึ่งฉากของภาพวงจร LLM ที่ slide หนึ่งอ้างถึง (เหมือน scene ของ gitflow)
+หนึ่งฉากที่สไลด์อ้างถึงใน registry ของ pattern เช่น llmflow (วงจร LLM), webflow (กระบวนการเว็บ) หรือ gitflow; กำหนดภาพ ลำดับขั้น และ caption ของฉากนั้น

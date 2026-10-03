@@ -13,14 +13,14 @@ export function WebFlowPage({ scene, think = false }: { scene: WebFlowPageDefini
   const [scope, tl] = useTimeline(think ? revealThinkAnswer : scene.build, { hold: think })
   const interactive = scene.layer === 'js' && tl.step > 0
   return (
-    <Stack gap="md">
+    <Stack gap="sm">
       <div ref={scope} data-board-scene={scene.layer}>
-        <Stack gap="md">
+        <Stack gap="sm">
           {think && <Text>ลองคิด: หน้าเว็บมาจากอะไร?</Text>}
           <div data-el={think ? "think-answer" : undefined} className={think ? s.answer : undefined}>
-            <Stack gap="md">
+            <Stack gap="sm">
               <section data-el="board" className={scene.layer === 'html' ? s.plain : s.styled} aria-label={`${example.name} · ${scene.title}`}>
-                <Stack gap="md">
+                <Stack gap="sm">
                   <header className={s.header}>
                     <Stack gap="sm"><strong>{example.name}</strong><Text variant="muted">{example.label}</Text></Stack>
                   </header>
