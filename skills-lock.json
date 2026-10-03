@@ -73,6 +73,12 @@
       "skillPath": "skills/git/pr-to-base/SKILL.md",
       "computedHash": "150454fe920c149809992dc5b45cf615caa68e3fb7c0a8f17123080c30aef5c8"
     },
+    "review-to-pr": {
+      "source": "ArrayaWongsaita/skills",
+      "sourceType": "github",
+      "skillPath": "skills/agents/review-to-pr/SKILL.md",
+      "computedHash": "2b5cf07e7ff99c843b8308330846081c31828351f11c01b019f674081609b3ab"
+    },
     "scrutinize": {
       "source": "thananon/9arm-skills",
       "sourceType": "github",
