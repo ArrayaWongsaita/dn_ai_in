@@ -18,6 +18,11 @@ export interface CompareData { type: 'compare'; title: string; items: CompareIte
 
 export interface GitFlowData { type: 'gitflow'; scene: string; command: string; title: string; sub?: string }
 
-export type SlideData = CoverData | StatData | StatementData | CompareData | GitFlowData
+/** Scenes of the llmflow diagram; the registry must register each one. */
+export type LlmFlowSceneId = 'overview' | 'tokenize' | 'predict' | 'loop' | 'context' | 'wrong'
+
+export interface LlmFlowData { type: 'llmflow'; scene: LlmFlowSceneId; title: string; sub?: string }
+
+export type SlideData = CoverData | StatData | StatementData | CompareData | GitFlowData | LlmFlowData
 
 export interface NextChapter { to: string; title: string }

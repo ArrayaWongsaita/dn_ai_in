@@ -1,5 +1,6 @@
 export { Deck } from './Deck'
 export { GitFlow } from './GitFlow'
 export { HttpExchange } from './HttpExchange'
+export { LlmFlow } from './LlmFlow'
 export { SlideFrame } from './SlideFrame'
 export { TocList } from './TocList'

@@ -69,8 +69,9 @@
 | **Statement** | `title` (+ `sub`, `src`) | ข้อความหลักหรือสรุป |
 | **Compare** | `title` + `items[]` (กล่องสี) | เทียบสองสิ่ง เช่น สีเข้ม vs สีนุ่ม |
 | **GitFlow** | `scene` + `command` + `title` (+ `sub`) | แสดงคำสั่ง Git ด้วยภาพสี่พื้นที่และเทอร์มินัล |
+| **LLMFlow** | `scene` + `title` (+ `sub`) | ภาพวงจร LLM จาก scene registry |
 
-GitFlow ใช้ scene จาก registry ใน `src/shared/animation/gitflow/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงผลลัพธ์เดียวกับสถานะของไฟล์
+GitFlow ใช้ scene จาก registry ใน `src/shared/animation/gitflow/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงผลลัพธ์เดียวกับสถานะของไฟล์ ส่วน LLMFlow ใช้กลไกเดียวกัน โดย scene มาจาก `src/shared/animation/llmflow/` — title/sub ของ slide ต้องตรงกับสิ่งที่ timeline แสดง
 
 ข้อความอื่นที่ไม่ใช่ pattern เหล่านี้ให้ตั้งคำถามก่อนว่าควรแยกเป็นอีกสไลด์หรือไม่
 

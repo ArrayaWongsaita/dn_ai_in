@@ -21,6 +21,7 @@ const show = {
     const command = toSingleLine(d.command) || '—'
     return `**GitFlow** scene=${d.scene} · command=${command} — ${d.title}${d.sub ? ` · ${toSingleLine(d.sub)}` : ''}`
   },
+  llmflow: (d) => `**LLMFlow** scene=${d.scene} — ${d.title}${d.sub ? ` · ${toSingleLine(d.sub)}` : ''}`,
 }
 
 const lines = [

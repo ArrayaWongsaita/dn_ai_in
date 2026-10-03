@@ -36,4 +36,5 @@ export const sampleSlides: SlideData[] = [
   },
   { type: 'gitflow', scene: 'overview', command: '', title: 'ตัวอย่าง GitFlow · overview' },
   { type: 'gitflow', scene: 'init', command: 'git init', title: 'ตัวอย่าง GitFlow · init' },
+  { type: 'llmflow', scene: 'overview', title: 'ตัวอย่าง LLMFlow · overview', sub: 'ข้อความรองของภาพวงจร (ข้อมูลสมมติ)' },
 ]

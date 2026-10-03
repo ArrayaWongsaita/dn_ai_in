@@ -1,4 +1,5 @@
 export { EndSlide } from './EndSlide'
 export { GitflowSlide } from './GitflowSlide'
+export { LlmflowSlide } from './LlmflowSlide'
 export { SlideDeck } from './SlideDeck'
 export { SlideRenderer } from './SlideRenderer'
