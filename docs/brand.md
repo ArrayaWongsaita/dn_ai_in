@@ -34,7 +34,7 @@ Dark mode: ยก lightness ของม่วงเป็น lilac (`#B3A8F5`),
 ## Typography
 
 - ไทย: **Noto Sans Thai** (หัวข้อ/เนื้อหาภาษาไทย)
-- ละติน: **Inter** ตามบอร์ด — *ยังไม่ได้ติดตั้ง* ปัจจุบันใช้ Noto Sans Thai ตัวเดียว (กฎ "ไม่มีฟอนต์ตัวที่สอง" ใน `design.md`); ถ้าจะเพิ่ม Inter ต้องตัดสินใจและแก้กฎนั้นก่อน
+- ละติน: ใช้ **Noto Sans Thai** ตัวเดียวกับไทย — ตัดสินใจแล้วว่าไม่เพิ่ม Inter (กฎ "ไม่มีฟอนต์ตัวที่สอง" ใน `design.md`)
 - หัวข้อ: ตัวหนา, คำสำคัญในหัวข้อเน้นด้วยสีม่วง (เช่น "เรียน **Web Development** ให้เข้าใจได้จริง")
 
 ## ไอคอนและภาพประกอบ
@@ -62,11 +62,15 @@ Dark mode: ยก lightness ของม่วงเป็น lilac (`#B3A8F5`),
 | 05 | Flow | State → Re-render → UI เป็นกล่อง + ลูกศร |
 | 06 | Summary | ติ๊กสรุป + ตัวละครยกมือ |
 
-แมปกับ pattern เดิมใน `design.md` (Statement / Compare / Stat ...) — ยังไม่ได้เพิ่ม template ใหม่
+เทมเพลต 01 (พื้น `--surface` + แถบ `--accent-2`), 04 Checklist และ 05 Flow ทำแล้วเป็น pattern `checklist` / `flow` ใน `design.md`; เทมเพลตที่เหลือยังแมปกับ pattern เดิม (Statement / Compare / Stat ...)
 
 ## สถานะการนำไปใช้
 
 - [x] tokens สี (light/dark) ปรับตามบอร์ด
-- [ ] `--surface` / `--accent-2` / `--success` / `--danger` ยังไม่ถูกใช้ใน component (เพิ่มตอนทำ Callout โทนต่าง, Badge โทนใหม่)
-- [ ] Inter, ไอคอนชุดใหม่, ภาพประกอบตัวละคร
-- [ ] ตัดสินใจเรื่องพื้นหลังกว้างสี surface (ขัดกับกฎเดิม "ม่วงไม่เป็นพื้นกว้าง"; ใช้ tint อ่อนได้ ม่วงทึบยังใช้เฉพาะปุ่มเล็ก)
+- [x] tokens รูปทรง/พื้นโค้ด: `--radius` 12px, `--radius-lg` 16px, `--shadow-sm`, `--code-bg/fg/muted/accent` (เข้มทั้งสองธีม) และ `--tint-pct` 8% — ตรวจด้วย `pnpm contrast:check`
+- [x] `--surface` / `--accent-2` / `--success` / `--danger` ถูกใช้จริง: Callout โทน concept/remember/warning, Badge โทน new/hot บนพื้น `--surface` และ `--accent-2` เป็นแถบปกกับลูกศร Flow
+- [x] `Icon` ชุดแรก (check, warning, bulb) และ Badge ครบโทน neutral/accent/new/hot/code
+- [x] พื้นหลังกว้างใช้ `--surface` ได้ (การ์ด, callout, ปก) — ม่วงทึบ `--accent` ใช้เฉพาะปุ่มและจุดเน้น; พื้นเข้มใช้เฉพาะ `--code-*`
+- [x] template Checklist (04) และ Flow (05) เพิ่มใน `design.md`
+- [x] คงฟอนต์ Noto Sans Thai ตัวเดียว — ไม่เพิ่ม Inter
+- [ ] ภาพประกอบตัวละครตามบอร์ด

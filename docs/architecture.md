@@ -48,10 +48,12 @@ dev   → shared (ห้ามใช้เนื้อหาจริง)
 
 | Layer | คืออะไร | ตัวอย่าง | import ได้จาก |
 |---|---|---|---|
-| **atoms** | องค์ประกอบเดี่ยว ไม่รู้บริบท | `Heading` `Text` `Kicker` `Source` `BigNumber` `Stack` `Screen` `Pill` `Dot` `Swatch` `AppLink` | hooks, lib, types |
+| **atoms** | องค์ประกอบเดี่ยว ไม่รู้บริบท | `Heading` `Text` `Kicker` `Source` `BigNumber` `Stack` `Screen` `Pill` `Dot` `Swatch` `Icon` `AppLink` | hooks, lib, types |
 | **molecules** | atoms รวมเป็นหน้าที่เดียว | `CountUp` `StatBlock` `NavDots` `ThemeToggle` `ChromeBar` `SwatchRow` `TocItem` | atoms |
 | **organisms** | ส่วนของหน้าที่มีพฤติกรรม | `SlideFrame` `Deck` `TocList` | atoms, molecules |
-| **templates** | จับ SlideData มาเป็นสไลด์ | `CoverSlide` `StatSlide` `StatementSlide` `CompareSlide` `GitflowSlide` `WebflowSlide` `EndSlide` `SlideRenderer` `SlideDeck` | atoms, molecules, organisms |
+| **templates** | จับ SlideData มาเป็นสไลด์ | `CoverSlide` `StatSlide` `StatementSlide` `CompareSlide` `GitflowSlide` `WebflowSlide` `ChecklistSlide` `FlowSlide` `EndSlide` `SlideRenderer` `SlideDeck` | atoms, molecules, organisms |
+
+`checklist` และ `flow` เป็นสไลด์นิ่ง (ไม่ผ่าน GSAP): `ChecklistSlide` รับ `items` 1–6 และ `FlowSlide` รับ `steps` 2–4 โดยขอบเขตบังคับด้วย type ใน `shared/types/slide.ts`
 
 🔒 layer ล่างห้าม import layer ที่อยู่สูงกว่า (`no-restricted-imports` ใน `eslint.config.js`)
 
