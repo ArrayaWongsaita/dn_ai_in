@@ -14,6 +14,19 @@ const slides: SlideData[] = [
   },
   {
     type: 'webflow',
+    scene: 'client-server',
+    title: 'Client / Server · เหมือนสั่งอาหาร',
+    sub: 'ลูกค้าเป็นฝ่ายขอ พนักงานรับคำขอ ครัวเตรียมอาหาร แล้วส่งกลับมา\nบนเว็บ: client ส่ง request → server เตรียม response → ส่งกลับ client',
+  },
+  {
+    type: 'webflow',
+    scene: 'dns',
+    title: 'DNS · รู้ที่อยู่ก่อนขอหน้าเว็บ',
+    sub: 'URL มีชื่อโดเมนและเส้นทางหน้าเว็บ · DNS ช่วยหาที่อยู่ IP จากชื่อโดเมน\nตัวอย่างสมมติ: เลื่อนดูการหาที่อยู่ก่อนส่ง HTTP request',
+    src: 'MDN · How browsers work · https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work#dns_lookup',
+  },
+  {
+    type: 'webflow',
     scene: 'http-200',
     title: 'HTTP 200 · ขอหน้าบอร์ดงานสำเร็จ',
     sub: 'ตัวอย่าง: client ขอ /board ด้วย GET → server ตอบ 200 พร้อม HTML ของหน้าเว็บ\n200 หมายถึงคำขอสำเร็จ · เลื่อนทีละขั้นเพื่อดู request และ response',
