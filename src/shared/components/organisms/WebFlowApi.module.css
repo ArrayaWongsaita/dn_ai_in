@@ -1,0 +1,9 @@
+.flow { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--gap-sm); }
+.node { flex: 1; min-width: 0; border: 1px solid var(--accent); border-radius: var(--radius); padding: var(--gap-sm); }
+.messages { flex: 1; min-width: 0; overflow: hidden; color: var(--accent); font-size: var(--fs-small); }
+.hidden { opacity: 0; visibility: hidden; }
+.json { white-space: pre-wrap; overflow-wrap: anywhere; font-size: var(--fs-small); color: var(--fg); margin: 0; }
+.task { border: 1px solid var(--line); border-radius: var(--radius); padding: var(--gap-sm); overflow-wrap: anywhere; }
+
+.results { display: flex; flex-wrap: wrap; gap: var(--gap-md); }
+.results > div { flex: 1; min-width: 0; }

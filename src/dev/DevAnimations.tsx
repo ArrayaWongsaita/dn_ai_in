@@ -30,7 +30,7 @@ export default function DevAnimations() {
           </Demo>
         </SeenContext>
       </Section>
-      <Section title="WebFlow" note="ตัวอย่าง TaskFlow · Client/Server, DNS, HTTP 200/404 และบอร์ด HTML → CSS → JS · เล่น หยุด เลื่อนทีละขั้น และลากดูได้">
+      <Section title="WebFlow" note="ตัวอย่าง TaskFlow · Client/Server, DNS, HTTP 200/404 บอร์ด HTML → CSS → JS และ API + ฐานข้อมูล · เล่น หยุด เลื่อนทีละขั้น และลากดูได้">
         <SeenContext value={true}>
           <Demo name="ลองคิด · mpa"><WebFlow sceneId="mpa" think /></Demo>
           <Demo name="ลองคิด · build-html"><WebFlow sceneId="build-html" think /></Demo>

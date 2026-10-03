@@ -65,6 +65,7 @@ const slides: SlideData[] = [
     { text: 'MPA', note: 'ขอหน้าใหม่จาก server\nโหลดทั้งหน้า รวม header', fg: 'var(--fg)', bg: 'var(--bg)' },
     { text: 'SPA', note: 'JavaScript สลับเนื้อหา\nheader เดิมคงอยู่ · อาจขอข้อมูลเพิ่ม', fg: 'var(--fg)', bg: 'var(--bg)' },
   ], src: 'MDN · SPA · https://developer.mozilla.org/en-US/docs/Glossary/SPA' },
+  { type: 'webflow', scene: 'api-db', title: 'API + ฐานข้อมูล · ข้อมูลบอร์ดมาจากไหน', sub: 'หน้าเว็บขอข้อมูลผ่าน API บน server → server อ่านฐานข้อมูล → ส่ง JSON กลับ\nJavaScript นำข้อมูลมาแสดงบนบอร์ดงาน (ตัวอย่างสมมติ)', src: 'MDN · Client-server overview · https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview' },
 ]
 
 export default slides

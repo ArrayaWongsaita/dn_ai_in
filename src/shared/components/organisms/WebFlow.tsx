@@ -1,5 +1,6 @@
 import { webFlowScenes } from '@/shared/animation/webflow'
 import type { WebFlowHttpData, WebFlowSceneId } from '@/shared/types/slide'
+import { WebFlowApi } from './WebFlowApi'
 import { WebFlowDiagram } from './WebFlowDiagram'
 import { WebFlowNavigation } from './WebFlowNavigation'
 import { WebFlowPage } from './WebFlowPage'
@@ -9,6 +10,7 @@ import s from './WebFlow.module.css'
 /** Registered HTTP scenes reuse HttpExchange's timeline, captions and controls. */
 export function WebFlow({ sceneId, http, think = false }: { sceneId: WebFlowSceneId; http?: WebFlowHttpData; think?: boolean }) {
   const scene = webFlowScenes[sceneId]
+  if (scene.kind === 'api') return <WebFlowApi scene={scene} />
   if (scene.kind === 'navigation') return <WebFlowNavigation key={`${sceneId}-${think}`} scene={scene} think={think} />
   if (scene.kind === 'page') return <WebFlowPage key={`${sceneId}-${think}`} scene={scene} think={think} />
   if (scene.kind === 'diagram') return <WebFlowDiagram scene={scene} />
