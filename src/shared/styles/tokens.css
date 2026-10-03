@@ -1,8 +1,13 @@
 /* Design tokens — the ONLY place raw colors / sizes live. Rationale: design.md, docs/research.md §5.
-   Brand direction (WebLearn): docs/brand.md. Contrast (text on --bg): fg 14:1 · muted ≥5:1 · accent ≥6:1. Never use #000/#fff. */
+   Brand direction (WebLearn): docs/brand.md. Contrast (text on --bg): fg 14:1 · muted ≥5:1 · accent ≥6:1. Never use #000/#fff.
+   Colour pairs are enforced by `pnpm contrast:check` (scripts/check-contrast.mjs) in both themes. */
 :root {
   --bg: #faf9fd; --fg: #282436; --muted: #6e6980; --accent: #5b4bc4; --line: #28243622;
   --accent-2: #7a6ad8; --surface: #f0ecff; --success: #276f67; --danger: #c0394b;
+  /* Code surfaces are dark in BOTH themes (brand board); inside them use only --code-* colours.
+     Tint: color-mix(in srgb, <tone> var(--tint-pct), var(--bg)) — shared by every Badge tone. */
+  --code-bg: #241f38; --code-fg: #e8e6f0; --code-muted: #a8a4b8; --code-accent: #b3a8f5;
+  --tint-pct: 8%;
 
   --font-sans: "Noto Sans Thai", "Sarabun", system-ui, sans-serif;
   --fs-webflow-body: 18px;
@@ -17,7 +22,8 @@
 
   --gutter: clamp(24px, 10vw, 160px);
   --gap-sm: 0.5rem; --gap-md: 1rem; --gap-lg: 2rem;
-  --radius: 8px; --radius-pill: 999px;
+  --radius: 12px; --radius-lg: 16px; --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgb(40 36 54 / 0.08);
   --dur: 0.5s;
 }
 @media (prefers-color-scheme: dark) {
