@@ -144,3 +144,12 @@
 - Anthropic Claude Platform Docs — "Token counting": https://platform.claude.com/docs/en/build-with-claude/token-counting — ใช้ยืนยันคำอธิบายว่า token ไม่เท่ากับคำ
 - Jay Alammar — "The Illustrated Transformer": https://jalammar.github.io/illustrated-transformer/ — ใช้อธิบายว่าทำไมคำตอบเกิดจากการเลือกจากความน่าจะเป็น (ใช้เฉพาะ intuition ไม่ลงลึกบนสไลด์)
 - Andrej Karpathy — "[1hr Talk] Intro to Large Language Models": https://www.youtube.com/watch?v=zjkBMFhNj_g — ใช้ตรวจ mental model "ทำนายชิ้นถัดไป" และความต่างของการเทรนกับการเข้าถึงข้อมูลขณะตอบ
+
+## 9. Git for Windows (เทอร์มินัลสำหรับ Windows)
+
+- Windows ไม่ได้ติดตั้ง bash มาให้ — Git for Windows ติดตั้ง Git พร้อม Git Bash ซึ่งรันคำสั่งแบบเดียวกับ Mac
+- คอร์สใช้ Git Bash เป็นเทอร์มินัลบน Windows (ไม่ใช้ PowerShell/cmd) เพื่อให้คำสั่งทุกคำสั่งเหมือนกันทุก OS
+- เป็นที่มาของสไลด์ "Windows ใช้ Git Bash" ในบทเทอร์มินัล (A3)
+
+แหล่ง:
+- https://git-scm.com/downloads

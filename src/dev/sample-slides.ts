@@ -37,4 +37,12 @@ export const sampleSlides: SlideData[] = [
   { type: 'gitflow', scene: 'overview', command: '', title: 'ตัวอย่าง GitFlow · overview' },
   { type: 'gitflow', scene: 'init', command: 'git init', title: 'ตัวอย่าง GitFlow · init' },
   { type: 'llmflow', scene: 'overview', title: 'ตัวอย่าง LLMFlow · overview', sub: 'ข้อความรองของภาพวงจร (ข้อมูลสมมติ)' },
+  { type: 'terminal', scene: 'pwd', command: 'pwd', title: 'ตัวอย่าง Terminal · pwd' },
+  {
+    type: 'terminal',
+    scene: 'mkdir',
+    command: 'mkdir my-site',
+    title: 'ตัวอย่าง Terminal · mkdir',
+    sub: 'ข้อความรองสองบรรทัด\nเพื่อทดสอบการตัดบรรทัด',
+  },
 ]

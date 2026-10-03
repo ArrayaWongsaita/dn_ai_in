@@ -23,6 +23,15 @@ export type LlmFlowSceneId = 'overview' | 'tokenize' | 'predict' | 'loop' | 'con
 
 export interface LlmFlowData { type: 'llmflow'; scene: LlmFlowSceneId; title: string; sub?: string }
 
-export type SlideData = CoverData | StatData | StatementData | CompareData | GitFlowData | LlmFlowData
+export interface TerminalData { type: 'terminal'; scene: string; command: string; title: string; sub?: string }
+
+export type SlideData =
+  | CoverData
+  | StatData
+  | StatementData
+  | CompareData
+  | GitFlowData
+  | LlmFlowData
+  | TerminalData
 
 export interface NextChapter { to: string; title: string }

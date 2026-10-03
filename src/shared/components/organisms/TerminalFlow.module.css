@@ -1,0 +1,12 @@
+.layout > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  column-gap: var(--gap-md);
+  align-items: stretch;
+}
+
+.caption { color: var(--fg); }
+
+@media (max-width: 48rem) {
+  .layout > div { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,4 +1,4 @@
-# Design — Slide บท Git
+# Design — Slide คอร์ส "การสร้างเว็บไซต์"
 
 ระบบดีไซน์ของ slide ใช้ tokens ใน `src/shared/styles/tokens.css`; เหตุผลและแหล่งข้อมูลอยู่ใน `docs/research.md`
 
@@ -70,8 +70,11 @@
 | **Compare** | `title` + `items[]` (กล่องสี) | เทียบสองสิ่ง เช่น สีเข้ม vs สีนุ่ม |
 | **GitFlow** | `scene` + `command` + `title` (+ `sub`) | แสดงคำสั่ง Git ด้วยภาพสี่พื้นที่และเทอร์มินัล |
 | **LLMFlow** | `scene` + `title` (+ `sub`) | ภาพวงจร LLM จาก scene registry |
+| **Terminal** | `scene` + `command` + `title` (+ `sub`) | แสดงคำสั่งในจอเทอร์มินัลคู่แผนผังโฟลเดอร์ที่เปลี่ยนตามคำสั่ง |
 
 GitFlow ใช้ scene จาก registry ใน `src/shared/animation/gitflow/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงผลลัพธ์เดียวกับสถานะของไฟล์ ส่วน LLMFlow ใช้กลไกเดียวกัน โดย scene มาจาก `src/shared/animation/llmflow/` — title/sub ของ slide ต้องตรงกับสิ่งที่ timeline แสดง
+
+Terminal ใช้ scene จาก registry ใน `src/shared/animation/terminal/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงคำสั่งพร้อมผลต่อโฟลเดอร์/ไฟล์ในแผนผัง
 
 ข้อความอื่นที่ไม่ใช่ pattern เหล่านี้ให้ตั้งคำถามก่อนว่าควรแยกเป็นอีกสไลด์หรือไม่
 

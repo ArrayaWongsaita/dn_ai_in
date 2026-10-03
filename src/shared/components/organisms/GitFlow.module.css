@@ -64,21 +64,6 @@
   writing-mode: vertical-rl;
 }
 
-.terminal {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-sm);
-  min-width: 0;
-  padding: var(--gap-md);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--fg) 4%, var(--bg));
-  color: var(--fg);
-}
-
-.terminalTitle { color: var(--muted); font-size: var(--fs-small); }
-.command { color: var(--accent); font-size: var(--fs-small); white-space: pre-wrap; overflow-wrap: anywhere; }
-.output { margin: 0; color: var(--fg); font-family: var(--font-sans); font-size: var(--fs-small); line-height: var(--lh-body); white-space: pre-wrap; overflow-wrap: anywhere; }
 .caption { color: var(--fg); }
 
 @media (max-width: 48rem) {
