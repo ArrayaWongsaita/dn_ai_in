@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button, Stack } from '@/shared/components/atoms'
-import { Callout, Card, ChromeBar, CodeBlock, CountUp, NavDots, StatBlock, SwatchRow, ThemeToggle, TocItem } from '@/shared/components/molecules'
+import { Callout, Card, ChromeBar, CodeBlock, CountUp, NavDots, StatBlock, SwatchRow, Terminal, ThemeToggle, TocItem } from '@/shared/components/molecules'
 import { TocList } from '@/shared/components/organisms'
 import { SeenContext } from '@/shared/hooks'
 import { Demo, Section } from './DevLayout'
@@ -35,6 +35,9 @@ export function MoleculesSection() {
         </Demo>
         <Demo name="CodeBlock">
           <CodeBlock language="http" code={'GET /index.html HTTP/1.1\nHost: example.com'} />
+        </Demo>
+        <Demo name="Terminal">
+          <Terminal command="pwd" output="/Users/teacher/my-site" />
         </Demo>
         <Demo name="Card (+ action)">
           <Card title="หัวข้อการ์ด" action={<Button size="sm" variant="secondary" onClick={() => {}}>เปิดอ่าน</Button>}>
