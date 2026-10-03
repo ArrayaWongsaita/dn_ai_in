@@ -1,9 +1,10 @@
-import { GitFlow, HttpExchange, LlmFlow, TerminalFlow } from '@/shared/components/organisms'
+import { GitFlow, HttpExchange, LlmFlow, TerminalFlow, WebFlow } from '@/shared/components/organisms'
 import { SeenContext } from '@/shared/hooks'
 import { gitFlowScenes } from '@/shared/animation/gitflow'
 import { llmFlowScenes } from '@/shared/animation/llmflow'
 import { terminalScenes } from '@/shared/animation/terminal'
-import type { LlmFlowSceneId } from '@/shared/types/slide'
+import { webFlowScenes } from '@/shared/animation/webflow'
+import type { WebFlowSceneId, LlmFlowSceneId } from '@/shared/types/slide'
 import { Demo, DevLayout, Section } from './DevLayout'
 import { HeldTimelineDemo } from './HeldTimelineDemo'
 
@@ -27,6 +28,15 @@ export default function DevAnimations() {
           <Demo name="GET → 404 Not Found">
             <HttpExchange method="GET" path="/missing" status={404} statusText="Not Found" />
           </Demo>
+        </SeenContext>
+      </Section>
+      <Section title="WebFlow" note="ตัวอย่าง TaskFlow · HTTP 200 และ 404 · เล่น หยุด เลื่อนทีละขั้น และลากดูได้">
+        <SeenContext value={true}>
+          {Object.entries(webFlowScenes).map(([sceneId, scene]) => (
+            <Demo key={sceneId} name={scene.title}>
+              <WebFlow sceneId={sceneId as WebFlowSceneId} />
+            </Demo>
+          ))}
         </SeenContext>
       </Section>
       <Section title="GitFlow" note="ทุก scene ที่ลงทะเบียนจะแสดงที่นี่โดยอัตโนมัติ">
