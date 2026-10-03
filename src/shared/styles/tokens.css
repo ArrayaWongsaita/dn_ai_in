@@ -1,7 +1,8 @@
 /* Design tokens — the ONLY place raw colors / sizes live. Rationale: design.md, docs/research.md §5.
-   Contrast (text on --bg): fg 13:1 · muted ≥6:1 · accent ≥6:1. Never use #000/#fff. */
+   Brand direction (WebLearn): docs/brand.md. Contrast (text on --bg): fg 14:1 · muted ≥5:1 · accent ≥6:1. Never use #000/#fff. */
 :root {
-  --bg: #f7f5f0; --fg: #2b2a26; --muted: #5e5b52; --accent: #6b3fc0; --line: #2b2a2622;
+  --bg: #faf9fd; --fg: #282436; --muted: #6e6980; --accent: #5b4bc4; --line: #28243622;
+  --accent-2: #7a6ad8; --surface: #f0ecff; --success: #276f67; --danger: #c0394b;
 
   --font-sans: "Noto Sans Thai", "Sarabun", system-ui, sans-serif;
   --fs-webflow-body: 18px;
@@ -20,6 +21,6 @@
   --dur: 0.5s;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --bg: #1c1d1f; --fg: #e4e2da; --muted: #a3a197; --accent: #b69cf5; --line: #e4e2da22; }
+  :root:not([data-theme="light"]) { --bg: #1b1a24; --fg: #e8e6f0; --muted: #a8a4b8; --accent: #b3a8f5; --line: #e8e6f022; --accent-2: #8d80e0; --surface: #26243a; --success: #5dc4b8; --danger: #ff8f9a; }
 }
-:root[data-theme="dark"] { --bg: #1c1d1f; --fg: #e4e2da; --muted: #a3a197; --accent: #b69cf5; --line: #e4e2da22; }
+:root[data-theme="dark"] { --bg: #1b1a24; --fg: #e8e6f0; --muted: #a8a4b8; --accent: #b3a8f5; --line: #e8e6f022; --accent-2: #8d80e0; --surface: #26243a; --success: #5dc4b8; --danger: #ff8f9a; }
