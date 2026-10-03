@@ -24,7 +24,7 @@ export type LlmFlowSceneId = 'overview' | 'tokenize' | 'predict' | 'loop' | 'con
 export interface LlmFlowData { type: 'llmflow'; scene: LlmFlowSceneId; title: string; sub?: string }
 
 /** HTTP scenes share the existing request/response diagram. */
-export type WebFlowSceneId = 'client-server' | 'dns' | 'http-200' | 'http-404'
+export type WebFlowSceneId = 'client-server' | 'dns' | 'http-200' | 'http-404' | 'build-html' | 'build-css' | 'build-js'
 export interface WebFlowHttpData {
   method?: string
   path?: string
