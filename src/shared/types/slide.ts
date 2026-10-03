@@ -58,6 +58,16 @@ export type ChecklistItems =
 /** Checklist slide: a title plus 1–6 ticked items (bound enforced by `ChecklistItems`). */
 export interface ChecklistData { type: 'checklist'; title: string; items: ChecklistItems; sub?: string }
 
+/** 2–4 steps as a tuple union, not `string[]` — TypeScript bounds the flow
+    (the proof lives in `src/dev/typeBounds.ts`: 1 step and 5 steps fail the build). */
+export type FlowSteps =
+  | [string, string]
+  | [string, string, string]
+  | [string, string, string, string]
+
+/** Flow slide: a title plus 2–4 labelled steps joined by arrows (bound enforced by `FlowSteps`). */
+export interface FlowData { type: 'flow'; title: string; steps: FlowSteps; sub?: string }
+
 export type SlideData =
   | CoverData
   | StatData
@@ -68,5 +78,6 @@ export type SlideData =
   | WebflowData
   | TerminalData
   | ChecklistData
+  | FlowData
 
 export interface NextChapter { to: string; title: string }

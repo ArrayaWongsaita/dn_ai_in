@@ -28,6 +28,7 @@ const show = {
     return `**เทอร์มินัล** scene=${d.scene} · command=${command} — ${d.title}${d.sub ? ` · ${toSingleLine(d.sub)}` : ''}`
   },
   checklist: (d) => `**เช็คลิสต์** ${d.title}: ${d.items.join(' · ')}${d.sub ? ` — ${d.sub}` : ''}`,
+  flow: (d) => `**Flow** ${d.title}: ${d.steps.join(' → ')}${d.sub ? ` — ${d.sub}` : ''}`,
 }
 
 const lines = [

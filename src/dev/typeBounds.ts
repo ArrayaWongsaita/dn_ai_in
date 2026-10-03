@@ -20,3 +20,10 @@ export const checklistWithSevenItems: SlideData = { type: 'checklist', title: '�
 
 // @ts-expect-error — checklist with no item must fail the build too
 export const checklistWithNoItems: SlideData = { type: 'checklist', title: 'ไม่มีรายการ', items: [] }
+
+// Flow bounds `steps` with a tuple union of length 2–4, not `string[]` (spec § User Stories 12).
+// @ts-expect-error — flow with 1 step must fail the build
+export const flowWithOneStep: SlideData = { type: 'flow', title: 'ขั้นเดียวไม่ได้', steps: ['State'] }
+
+// @ts-expect-error — flow with 5 steps must fail the build too
+export const flowWithFiveSteps: SlideData = { type: 'flow', title: 'ห้าขั้นไม่ได้', steps: ['หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า'] }
