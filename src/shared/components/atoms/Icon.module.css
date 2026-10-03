@@ -1,0 +1,14 @@
+/* Thin-line icon: strokes inherit the surrounding text colour (currentColor) and the icon
+   scales with it (1em). stroke-width 1.5 is the drawing weight inside the 24-unit viewBox —
+   part of the artwork, like the path data, not a layout size. */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

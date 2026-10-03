@@ -1,0 +1,2 @@
+/* Short accent bar under the cover title — a UI accent (≥3:1, see contrast table), not a wide surface. */
+.bar { width: var(--gap-lg); height: var(--gap-sm); border-radius: var(--radius-pill); background: var(--accent-2); }

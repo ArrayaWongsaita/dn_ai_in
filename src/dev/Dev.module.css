@@ -8,5 +8,7 @@
 /* transform makes position:fixed children (NavDots, ChromeBar) position relative to this box */
 .boxed { position: relative; transform: translate(0); height: 12rem; border: 1px dashed var(--line); border-radius: var(--radius); padding: var(--gap-md); }
 .row { display: flex; flex-wrap: wrap; gap: var(--gap-md); align-items: center; }
+/* surface backdrop: proves opaque tints (Badge) read the same on --bg and --surface */
+.surface { display: flex; flex-wrap: wrap; gap: var(--gap-md); align-items: center; background: var(--surface); border-radius: var(--radius); padding: var(--gap-sm) var(--gap-md); }
 .tokens { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: var(--gap-md); }
 .token { height: 4rem; border: 1px solid var(--line); border-radius: var(--radius); padding: 0.4rem 0.6rem; font-size: var(--fs-small); }

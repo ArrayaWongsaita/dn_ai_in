@@ -78,3 +78,11 @@ _Avoid_: web diagram, แผนภาพเว็บ
 
 **Scene**:
 หนึ่งฉากที่สไลด์อ้างถึงใน registry ของ pattern เช่น llmflow (วงจร LLM), webflow (กระบวนการเว็บ) หรือ gitflow; กำหนดภาพ ลำดับขั้น และ caption ของฉากนั้น
+
+**Design token**:
+ตัวแปร CSS ที่มีชื่อ เก็บค่าดีไซน์ เช่น สี ขนาด มุมโค้ง เงา หรือค่าในทำนองเดียวกัน — ประกาศรวมที่ `src/shared/styles/tokens.css` และใช้ผ่าน `var(--...)`; ไม่ใช่ **Token** ของ LLM ที่นิยามไว้ด้านบน
+_Avoid_: Token (ลอย ๆ — ชนกับ Token ของ LLM), ตัวแปรสี (แคบเกิน), ค่าคงที่
+
+**Tone**:
+รสความหมายของ Callout (concept, remember, warning) หรือ Badge (neutral, accent, new, hot, code) — กำหนดไอคอน/สีขอบหรือสีพื้นของชิ้นนั้น ไม่ใช่ชื่อสี
+_Avoid_: สี, โทนสี

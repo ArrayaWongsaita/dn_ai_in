@@ -1,4 +1,4 @@
-import { AppLink, Badge, BigNumber, Button, Code, Divider, Dot, Heading, Kbd, Kicker, Pill, ProgressBar, Source, Stack, Swatch, Text } from '@/shared/components/atoms'
+import { AppLink, Badge, BigNumber, Button, Code, Divider, Dot, Heading, Icon, Kbd, Kicker, Pill, ProgressBar, Source, Stack, Swatch, Text } from '@/shared/components/atoms'
 import { Demo, Section } from './DevLayout'
 import s from './Dev.module.css'
 
@@ -33,18 +33,46 @@ export function AtomsSection() {
           <Button variant="ghost" onClick={() => {}}>ข้าม</Button>
         </div>
       </Demo>
-      <Demo name="Button size=sm | disabled | to (link)">
+      <Demo name="Button size=sm | disabled | to (link) — Tab เพื่อดู focus ring">
         <div className={s.row}>
           <Button size="sm" onClick={() => {}}>เล็ก</Button>
           <Button disabled>ปิดใช้งาน</Button>
+          <Button variant="secondary" disabled>ปิดใช้งาน</Button>
+          <Button variant="ghost" disabled>ปิดใช้งาน</Button>
           <Button variant="secondary" to="/dev">ไปหน้า /dev</Button>
         </div>
       </Demo>
-      <Demo name="Badge tone=neutral | accent">
-        <div className={s.row}><Badge>HTML</Badge><Badge tone="accent">สำคัญ</Badge></div>
+      <Demo name="Badge tone=neutral | accent | new | hot | code">
+        <div className={s.row}>
+          <Badge>HTML</Badge>
+          <Badge tone="accent">สำคัญ</Badge>
+          <Badge tone="new">ใหม่</Badge>
+          <Badge tone="hot">ยอดนิยม</Badge>
+          <Badge tone="code">tsx</Badge>
+        </div>
+        <div className={s.surface}>
+          <Text variant="muted">บนพื้น surface —</Text>
+          <Badge tone="new">ใหม่</Badge>
+          <Badge tone="hot">ยอดนิยม</Badge>
+          <Badge>HTML</Badge>
+        </div>
       </Demo>
       <Demo name="Code / Kbd">
         <Text>เมธอด <Code>GET</Code> · กด <Kbd>→</Kbd> เพื่อไปสไลด์ถัดไป</Text>
+      </Demo>
+      <Demo name="Icon name=check | warning | bulb | arrow (decorative / labelled)">
+        <div className={s.row}>
+          <Icon name="check" decorative />
+          <Icon name="warning" decorative />
+          <Icon name="bulb" decorative />
+          <Icon name="arrow" decorative />
+        </div>
+        <div className={s.row}>
+          <Icon name="check" label="สำเร็จ" />
+          <Icon name="warning" label="คำเตือน" />
+          <Icon name="bulb" label="แนวคิดหลัก" />
+        </div>
+        <Text variant="muted">ตัวใหญ่: <Icon name="bulb" decorative /> สเกลตามตัวอักษร ลากเส้นตามสีข้อความ</Text>
       </Demo>
       <Demo name="ProgressBar"><ProgressBar value={60} label="ความคืบหน้า 60%" /></Demo>
       <Demo name="Divider"><Divider /></Demo>

@@ -1,6 +1,6 @@
 # Design — Slide คอร์ส "การสร้างเว็บไซต์"
 
-ระบบดีไซน์ของ slide ใช้ tokens ใน `src/shared/styles/tokens.css`; เหตุผลและแหล่งข้อมูลอยู่ใน `docs/research.md`
+ระบบดีไซน์ของ slide ใช้ tokens ใน `src/shared/styles/tokens.css`; เหตุผลและแหล่งข้อมูลอยู่ใน `docs/research.md`; ทิศทางแบรนด์ (WebLearn: ชื่อ, สี, ไอคอน, ภาพประกอบ, UI) อยู่ใน `docs/brand.md`
 
 ## หลักการ
 
@@ -22,16 +22,27 @@
 
 | Token | Light | Dark | หน้าที่ | Contrast (L / D) |
 |---|---|---|---|---|
-| `--bg` | `#F7F5F0` | `#1C1D1F` | พื้นหลัง | — |
-| `--fg` | `#2B2A26` | `#E4E2DA` | ข้อความหลัก, หัวข้อ | 13.2 / 13.0 |
-| `--muted` | `#5E5B52` | `#A3A197` | คำอธิบายรอง, แหล่งที่มา | 6.2 / 6.5 |
-| `--accent` | `#6B3FC0` | `#B69CF5` | primary (ม่วง): ตัวเลขใหญ่, จุดเน้น, nav | 6.2 / 7.3 |
+| `--bg` | `#FAF9FD` | `#1B1A24` | พื้นหลัง | — |
+| `--fg` | `#282436` | `#E8E6F0` | ข้อความหลัก, หัวข้อ | 14.3 / 13.9 |
+| `--muted` | `#6E6980` | `#A8A4B8` | คำอธิบายรอง, แหล่งที่มา | 5.0 / 7.1 |
+| `--accent` | `#5B4BC4` | `#B3A8F5` | primary (ม่วง): ตัวเลขใหญ่, จุดเน้น, ปุ่ม, nav | 6.2 / 8.1 |
+| `--accent-2` | `#7A6AD8` | `#8D80E0` | secondary: ภาพประกอบ/พื้นประกอบ (ไม่ใช้เป็นข้อความ) | — |
+| `--surface` | `#F0ECFF` | `#26243A` | พื้นการ์ด/callout | muted 4.5 / 6.2 |
+| `--success` | `#276F67` | `#5DC4B8` | สถานะสำเร็จ/หมายเหตุ | 5.6 / 8.2 |
+| `--danger` | `#C0394B` | `#FF8F9A` | ข้อผิดพลาด/คำเตือน | 5.1 / 7.9 |
 | `--line` | fg @ 13% | fg @ 13% | เส้นขอบบางๆ | — |
+| `--code-bg` | `#241F38` | `#241F38` | พื้น CodeBlock/Terminal (เข้มทั้งสองธีม) | — |
+| `--code-fg` | `#E8E6F0` | `#E8E6F0` | ข้อความ/คำสั่งในกล่องโค้ด | 12.8 / 12.8 |
+| `--code-muted` | `#A8A4B8` | `#A8A4B8` | ข้อความรอง/ป้ายภาษาในกล่องโค้ด | 6.5 / 6.5 |
+| `--code-accent` | `#B3A8F5` | `#B3A8F5` | คำเน้นในกล่องโค้ด | 7.4 / 7.4 |
+| `--tint-pct` | `8%` | `8%` | สัดส่วน tint ของ Badge (ผสมกับ `--bg`) | — |
 
 ### กติกา
 - ห้ามใช้ `#000` / `#fff` เป็นพื้นหรือตัวอักษร (ยกเว้นสไลด์เดโมเทียบสี)
 - Dark mode ใช้เทาเข้ม ไม่ใช่ดำ และยก lightness ของม่วงเป็น lilac
-- ม่วงใช้กับตัวเลข/จุดเน้นเท่านั้น ไม่ใช้เป็นพื้นหลังกว้าง
+- ม่วงใช้กับตัวเลข/จุดเน้นเท่านั้น ไม่ใช้เป็นพื้นหลังกว้าง; พื้นกว้างใช้ `--surface` (tint อ่อน) ได้
+- กล่องโค้ด/Terminal เป็นพื้นเข้ม `--code-bg` ทุกธีม; ภายในใช้เฉพาะ `--code-fg`/`--code-muted`/`--code-accent` ห้ามใช้ `--fg`/`--muted`/`--accent`
+- Badge โทน new/hot ใช้ tint ของ `--success`/`--danger` และโทน accent ใช้ tint ของ `--accent` ผสมกับ `--bg` ผ่าน `--tint-pct` (8%) เท่านั้น; `--accent-2` ใช้เป็นแถบปกและลูกศร Flow (องค์ประกอบ UI) ไม่ใช้เป็นสีข้อความ
 - ห้ามสื่อความหมายด้วยสีอย่างเดียว
 - สีใหม่ต้องคำนวณ contrast: ข้อความปกติ ≥ 4.5:1, ข้อความใหญ่/องค์ประกอบ UI ≥ 3:1
 
@@ -72,12 +83,16 @@
 | **LLMFlow** | `scene` + `title` (+ `sub`) | ภาพวงจร LLM จาก scene registry |
 | **WebFlow** | `scene` + `title` (+ `sub`, `think`, `http`, `src`) | กระบวนการเว็บจาก scene registry: client-server, dns, http-200/404, build-html/css/js, mpa/spa, api-db |
 | **Terminal** | `scene` + `command` + `title` (+ `sub`) | แสดงคำสั่งในจอเทอร์มินัลคู่แผนผังโฟลเดอร์ที่เปลี่ยนตามคำสั่ง |
+| **Checklist** | `title` + `items` (ติ๊กถูก 1–6 ข้อ) (+ `sub`) | สรุปบทหรือรายการสิ่งที่ผู้เรียนจะได้ทำ |
+| **Flow** | `title` + `steps` (2–4 ขั้น คั่นด้วยลูกศร) (+ `sub`) | อธิบายกระบวนการสั้น ๆ เช่น State → Re-render → UI |
 
 GitFlow ใช้ scene จาก registry ใน `src/shared/animation/gitflow/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงผลลัพธ์เดียวกับสถานะของไฟล์ ส่วน LLMFlow ใช้กลไกเดียวกัน โดย scene มาจาก `src/shared/animation/llmflow/` — title/sub ของ slide ต้องตรงกับสิ่งที่ timeline แสดง
 
 WebFlow ใช้ registry ใน `src/shared/animation/webflow/`; caption ต้องตรงกับภาพและขั้นของ timeline. `http` override ใช้ได้เฉพาะฉาก HTTP และส่งข้อมูลให้ HttpExchange. `think` ใช้เฉพาะ build-html/mpa: หยุดไว้ก่อนเฉลยจนผู้เรียนกดควบคุมเอง แม้เปิด reduced-motion.
 
 Terminal ใช้ scene จาก registry ใน `src/shared/animation/terminal/`; ค่า `command` ใน slide ต้องตรงกับ scene และ timeline แสดงคำสั่งพร้อมผลต่อโฟลเดอร์/ไฟล์ในแผนผัง
+
+Checklist และ Flow เป็นสไลด์นิ่ง ไม่ใช้ GSAP; จำนวน `items` (1–6) และ `steps` (2–4) บังคับด้วย type ใน `shared/types/slide.ts`. ลำดับของ Flow อยู่ใน `<ol>` และลูกศรเป็นตกแต่ง (`aria-hidden`) จึงไม่ต้องพึ่งสีหรือลูกศรอย่างเดียว
 
 ข้อความอื่นที่ไม่ใช่ pattern เหล่านี้ให้ตั้งคำถามก่อนว่าควรแยกเป็นอีกสไลด์หรือไม่
 
@@ -89,14 +104,15 @@ Terminal ใช้ scene จาก registry ใน `src/shared/animation/termina
 |---|---|---|---|
 | `Button` | atom | ปุ่มการกระทำในเนื้อหา | `variant`: primary (พื้นม่วง) / secondary (ขอบม่วง) / ghost · `size`: sm / md · `disabled` · `to` = ลิงก์ |
 | `Pill` | atom | ปุ่มเล็กของ chrome เช่น ธีม | `to` / `onClick` |
-| `Badge` | atom | ป้ายสั้น | `tone`: neutral / accent |
+| `Badge` | atom | ป้ายสั้น (ความหมายอยู่ที่ข้อความ ไม่ใช่สี) | `tone`: neutral / accent / new / hot / code |
 | `Code` | atom | โค้ดในบรรทัด | — |
 | `Kbd` | atom | ปุ่มคีย์บอร์ด | — |
+| `Icon` | atom | ไอคอนเส้นบาง ขนาด 1em ตามสีข้อความ | `name`: check / warning / bulb / arrow · ต้องระบุ `decorative` (ซ่อนจาก screen reader) หรือ `label` (ข้อความ) อย่างใดอย่างหนึ่ง |
 | `ProgressBar` | atom | ความคืบหน้า (`role="progressbar"`) | `value` 0–100, `label` |
 | `Divider` | atom | เส้นคั่น | — |
-| `Callout` | molecule | กล่องเน้น 1 ประเด็น ขอบม่วงซ้าย | `title` |
-| `CodeBlock` | molecule | โค้ดหลายบรรทัด | `code`, `language` |
-| `Card` | molecule | กล่องหัวข้อ + คำอธิบาย + action | `title`, `action` |
+| `Callout` | molecule | กล่องเน้น 1 ประเด็นบนพื้น `--surface` | `title` (ข้อความป้ายชื่อ) · `tone`: concept (bulb + ขอบม่วง) / remember (check + ขอบเขียว) / warning (warning + ขอบแดง); ไม่ระบุ = โทนกลางขอบม่วงซ้าย ไม่มีไอคอน |
+| `CodeBlock` | molecule | โค้ดหลายบรรทัดบนพื้นเข้ม `--code-bg` | `code`, `language` (ป้ายภาษาใช้ Badge โทน code) |
+| `Card` | molecule | กล่องหัวข้อ + คำอธิบาย + action บนพื้น `--surface` | `title`, `action` |
 
 - ปุ่ม primary: ตัวอักษร `--bg` บนพื้น `--accent` (≈ 6:1 ทั้งสองธีม); ม่วงพื้นทึบใช้เฉพาะปุ่มเล็ก ไม่ใช้พื้นหลังกว้าง
 - ทุกตัวมี focus ring `2px solid var(--accent)` และปิด transition เมื่อ `prefers-reduced-motion`

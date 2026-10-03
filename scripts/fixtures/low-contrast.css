@@ -1,0 +1,14 @@
+/* Fixture for `pnpm contrast:check -- --file scripts/fixtures/low-contrast.css`.
+   Mirrors the structure of src/shared/styles/tokens.css (all three theme blocks)
+   but sabotages one pair: --code-muted #7a7590 on --code-bg #241f38 is 3.60:1,
+   below the 4.5:1 required of text — the command must fail and name this pair. */
+:root {
+  --bg: #faf9fd; --fg: #282436; --muted: #6e6980; --accent: #5b4bc4; --line: #28243622;
+  --accent-2: #7a6ad8; --surface: #f0ecff; --success: #276f67; --danger: #c0394b;
+  --code-bg: #241f38; --code-fg: #e8e6f0; --code-muted: #7a7590; --code-accent: #b3a8f5;
+  --tint-pct: 8%;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1b1a24; --fg: #e8e6f0; --muted: #a8a4b8; --accent: #b3a8f5; --line: #e8e6f022; --accent-2: #8d80e0; --surface: #26243a; --success: #5dc4b8; --danger: #ff8f9a; }
+}
+:root[data-theme="dark"] { --bg: #1b1a24; --fg: #e8e6f0; --muted: #a8a4b8; --accent: #b3a8f5; --line: #e8e6f022; --accent-2: #8d80e0; --surface: #26243a; --success: #5dc4b8; --danger: #ff8f9a; }

@@ -1,2 +1,4 @@
-.block { margin: 0; display: grid; gap: var(--gap-sm); justify-items: start; padding: var(--gap-md); border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--fg) 5%, var(--bg)); }
-.pre { margin: 0; max-width: 100%; overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.8em; line-height: 1.6; color: var(--fg); }
+/* Dark code surface in BOTH themes — everything inside uses only --code-* colours
+   (--fg/--muted/--accent are dark in light mode and would vanish). Pairs: scripts/check-contrast.mjs. */
+.block { margin: 0; display: grid; gap: var(--gap-sm); justify-items: start; padding: var(--gap-md); border-radius: var(--radius); background: var(--code-bg); box-shadow: var(--shadow-sm); color: var(--code-fg); }
+.pre { margin: 0; max-width: 100%; overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.8em; line-height: 1.6; color: var(--code-fg); }

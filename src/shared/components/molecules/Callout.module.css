@@ -1,1 +1,11 @@
-.callout { display: grid; gap: var(--gap-sm); justify-items: start; padding: var(--gap-md) var(--gap-lg); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; background: color-mix(in srgb, var(--accent) 6%, var(--bg)); }
+/* Every tone sits on the same --surface; only the icon + edge colour differ, both ≥3:1 on
+   --surface in both themes (scripts/check-contrast.mjs). Toneless = neutral: accent edge, no icon. */
+.callout { display: grid; gap: var(--gap-sm); justify-items: start; padding: var(--gap-md) var(--gap-lg); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; background: var(--surface); }
+.head { display: flex; align-items: center; gap: var(--gap-sm); }
+.concept { border-left-color: var(--accent); }
+.remember { border-left-color: var(--success); }
+.warning { border-left-color: var(--danger); }
+.icon { display: inline-flex; }
+.concept .icon { color: var(--accent); }
+.remember .icon { color: var(--success); }
+.warning .icon { color: var(--danger); }

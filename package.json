@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "content:index": "node scripts/content-index.mjs",
     "content:check": "node scripts/content-index.mjs --check",
+    "contrast:check": "node scripts/check-contrast.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

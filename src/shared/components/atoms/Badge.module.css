@@ -1,3 +1,8 @@
 .badge { display: inline-block; font-size: 0.7em; line-height: 1.6; padding: 0.05rem 0.7rem; border-radius: var(--radius-pill); border: 1px solid var(--line); }
+/* Tints are OPAQUE — tone mixed over --bg (never --surface) at the shared --tint-pct,
+   so a badge reads identically on a plain or surface background. Pairs: scripts/check-contrast.mjs. */
 .neutral { color: var(--muted); }
-.accent { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--bg)); }
+.accent { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) var(--tint-pct), var(--bg)); }
+.new { color: var(--success); border-color: var(--success); background: color-mix(in srgb, var(--success) var(--tint-pct), var(--bg)); }
+.hot { color: var(--danger); border-color: var(--danger); background: color-mix(in srgb, var(--danger) var(--tint-pct), var(--bg)); }
+.code { color: var(--code-muted); border-color: transparent; background: var(--code-bg); }

@@ -13,5 +13,7 @@
 .ghost { background: transparent; color: var(--fg); }
 .ghost:hover:not(:disabled) { background: color-mix(in srgb, var(--fg) 8%, var(--bg)); }
 .button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.button:disabled { opacity: 0.5; cursor: not-allowed; }
+/* Disabled: flat opaque fill over --bg (not opacity, which composites with the backdrop),
+   so it reads as inert and clearly different on any surface. */
+.button:disabled { background: color-mix(in srgb, var(--muted) 12%, var(--bg)); border-color: transparent; color: var(--muted); cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .button { transition: none; } }
