@@ -58,6 +58,13 @@ const slides: SlideData[] = [
     title: 'JavaScript · เพิ่มพฤติกรรมให้หน้าเว็บ',
     sub: 'โครงและหน้าตาของบอร์ดเดิมยังอยู่ · เพิ่มการตอบสนองเมื่อกดปุ่ม\nลองกดย้ายงาน แล้วดูการ์ดไปอยู่คอลัมน์เสร็จแล้ว (ข้อมูลสมมติ)',
   },
+  { type: 'webflow', scene: 'mpa', think: true, title: 'ลองคิด: กดลิงก์แล้วอะไรเปลี่ยน' },
+  { type: 'webflow', scene: 'mpa', title: 'MPA · กดลิงก์แล้วโหลดทั้งหน้าใหม่', sub: 'ขอ HTML หน้าใหม่จาก server · ทั้งเนื้อหาและ header โหลดใหม่' },
+  { type: 'webflow', scene: 'spa', title: 'SPA · เปลี่ยนเนื้อหาในหน้าเดิม', sub: 'JavaScript สลับส่วนเนื้อหา · header เดิมยังอยู่\nSPA ยังขอข้อมูลจาก server ได้', src: 'MDN · SPA · https://developer.mozilla.org/en-US/docs/Glossary/SPA' },
+  { type: 'compare', title: 'MPA / SPA · กดลิงก์แล้วต่างกันอย่างไร', items: [
+    { text: 'MPA', note: 'ขอหน้าใหม่จาก server\nโหลดทั้งหน้า รวม header', fg: 'var(--fg)', bg: 'var(--bg)' },
+    { text: 'SPA', note: 'JavaScript สลับเนื้อหา\nheader เดิมคงอยู่ · อาจขอข้อมูลเพิ่ม', fg: 'var(--fg)', bg: 'var(--bg)' },
+  ], src: 'MDN · SPA · https://developer.mozilla.org/en-US/docs/Glossary/SPA' },
 ]
 
 export default slides

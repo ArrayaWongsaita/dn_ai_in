@@ -1,3 +1,6 @@
+import { mpa } from './mpa'
+import { spa } from './spa'
+import type { WebFlowNavigationDefinition } from './navigation'
 import { clientServer } from './client-server'
 import { dns } from './dns'
 import { buildHtml, buildCss, buildJs, type WebFlowPageDefinition } from './page'
@@ -14,7 +17,7 @@ export interface WebFlowHttpSceneDefinition {
 /** HTTP scenes delegate playback and captions to HttpExchange. */
 export const webFlowScenes = {
   'client-server': clientServer,
-  dns,
+  dns, mpa, spa,
   'build-html': buildHtml,
   'build-css': buildCss,
   'build-js': buildJs,
@@ -26,6 +29,6 @@ export const webFlowScenes = {
     kind: 'http', title: 'HTTP · ไม่พบหน้าที่ขอ',
     http: { method: 'GET', path: '/missing', status: 404, statusText: 'Not Found', host: 'taskflow.local' },
   },
-} satisfies Record<WebFlowSceneId, WebFlowHttpSceneDefinition | WebFlowDiagramDefinition | WebFlowPageDefinition>
+} satisfies Record<WebFlowSceneId, WebFlowHttpSceneDefinition | WebFlowDiagramDefinition | WebFlowPageDefinition | WebFlowNavigationDefinition>
 
 export { revealThinkAnswer } from './page'
