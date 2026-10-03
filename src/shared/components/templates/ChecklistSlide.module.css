@@ -1,0 +1,5 @@
+/* Tick list on the page background: item text is --fg on --bg, the check stroke is the
+   success colour (contrast row "Checklist check icon on page"). Rhythm comes from the gaps. */
+.list { display: grid; gap: var(--gap-sm); margin: 0; padding: 0; list-style: none; }
+.item { display: flex; align-items: baseline; gap: var(--gap-sm); }
+.tick { color: var(--success); }

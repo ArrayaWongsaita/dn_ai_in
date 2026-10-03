@@ -1,3 +1,4 @@
+export { ChecklistSlide } from './ChecklistSlide'
 export { EndSlide } from './EndSlide'
 export { GitflowSlide } from './GitflowSlide'
 export { LlmflowSlide } from './LlmflowSlide'

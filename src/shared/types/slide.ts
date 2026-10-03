@@ -45,6 +45,19 @@ export type WebflowData = WebflowBase & (
 
 export interface TerminalData { type: 'terminal'; scene: string; command: string; title: string; sub?: string }
 
+/** 1–6 items as a tuple union, not `string[]` — TypeScript bounds the checklist
+    (the proof lives in `src/dev/typeBounds.ts`: 7 items and an empty list fail the build). */
+export type ChecklistItems =
+  | [string]
+  | [string, string]
+  | [string, string, string]
+  | [string, string, string, string]
+  | [string, string, string, string, string]
+  | [string, string, string, string, string, string]
+
+/** Checklist slide: a title plus 1–6 ticked items (bound enforced by `ChecklistItems`). */
+export interface ChecklistData { type: 'checklist'; title: string; items: ChecklistItems; sub?: string }
+
 export type SlideData =
   | CoverData
   | StatData
@@ -54,5 +67,6 @@ export type SlideData =
   | LlmFlowData
   | WebflowData
   | TerminalData
+  | ChecklistData
 
 export interface NextChapter { to: string; title: string }

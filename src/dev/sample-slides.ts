@@ -55,4 +55,12 @@ export const sampleSlides: SlideData[] = [
     { text: 'MPA', note: 'ขอหน้าใหม่จาก server\nโหลดทั้งหน้า รวม header', fg: 'var(--fg)', bg: 'var(--bg)' },
     { text: 'SPA', note: 'JavaScript สลับเนื้อหา\nheader เดิมคงอยู่ · อาจขอข้อมูลเพิ่ม', fg: 'var(--fg)', bg: 'var(--bg)' },
   ], src: 'MDN · SPA · https://developer.mozilla.org/en-US/docs/Glossary/SPA' },
+  { type: 'checklist', title: 'ตัวอย่าง Checklist · 1 ข้อ (ขอบเขตต่ำสุด)', items: ['รายการเดียว'] },
+  {
+    type: 'checklist',
+    title: 'ตัวอย่าง Checklist · 4 ข้อ',
+    sub: 'ข้อความรองใต้หัวข้อ',
+    items: ['หนึ่ง', 'ข้อความยาวพอที่จะตัดบรรทัด เพื่อดูว่าไอคอนติ๊กยังชิดบรรทัดแรก', 'สาม', 'สี่'],
+  },
+  { type: 'checklist', title: 'ตัวอย่าง Checklist · 6 ข้อ (ขอบเขตสูงสุด)', items: ['หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า', 'หก'] },
 ]

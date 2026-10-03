@@ -5,6 +5,7 @@
 
 import { createElement } from 'react'
 import { Icon } from '@/shared/components/atoms'
+import type { SlideData } from '@/shared/types/slide'
 
 // Icon must demand exactly one of `decorative` or `label` (spec § User Stories 4, § Testing Decisions).
 // @ts-expect-error — Icon with NEITHER `decorative` nor `label` must fail the build
@@ -12,3 +13,10 @@ export const iconWithoutAnnouncement = createElement(Icon, { name: 'check' })
 
 // @ts-expect-error — Icon with BOTH `decorative` and `label` must fail the build too
 export const iconWithBothAnnouncements = createElement(Icon, { name: 'bulb', decorative: true, label: 'idea' })
+
+// Checklist bounds `items` with a tuple union of length 1–6, not `string[]` (spec § User Stories 11).
+// @ts-expect-error — checklist with 7 items must fail the build
+export const checklistWithSevenItems: SlideData = { type: 'checklist', title: 'ตัวอย่างที่ล้นขอบเขต', items: ['หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า', 'หก', 'เจ็ด'] }
+
+// @ts-expect-error — checklist with no item must fail the build too
+export const checklistWithNoItems: SlideData = { type: 'checklist', title: 'ไม่มีรายการ', items: [] }

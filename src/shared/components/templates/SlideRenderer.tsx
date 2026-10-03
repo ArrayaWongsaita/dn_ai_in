@@ -1,4 +1,5 @@
 import type { SlideData } from '@/shared/types/slide'
+import { ChecklistSlide } from './ChecklistSlide'
 import { CompareSlide } from './CompareSlide'
 import { CoverSlide } from './CoverSlide'
 import { StatSlide } from './StatSlide'
@@ -19,6 +20,7 @@ export function SlideRenderer({ slide }: { slide: SlideData }) {
     case 'llmflow': return <LlmflowSlide {...slide} />
     case 'webflow': return <WebflowSlide {...slide} />
     case 'terminal': return <TerminalSlide {...slide} />
+    case 'checklist': return <ChecklistSlide {...slide} />
     default: { const _exhaustive: never = slide; return _exhaustive }
   }
 }

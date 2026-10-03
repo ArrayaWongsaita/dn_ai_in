@@ -27,6 +27,7 @@ const show = {
     const command = toSingleLine(d.command) || '—'
     return `**เทอร์มินัล** scene=${d.scene} · command=${command} — ${d.title}${d.sub ? ` · ${toSingleLine(d.sub)}` : ''}`
   },
+  checklist: (d) => `**เช็คลิสต์** ${d.title}: ${d.items.join(' · ')}${d.sub ? ` — ${d.sub}` : ''}`,
 }
 
 const lines = [

@@ -98,6 +98,7 @@ const pairs = [
   { use: 'Callout concept icon + border', fg: '--accent', bg: '--surface', as: 'ui' },
   { use: 'Callout remember icon + border', fg: '--success', bg: '--surface', as: 'ui' },
   { use: 'Callout warning icon + border', fg: '--danger', bg: '--surface', as: 'ui' },
+  { use: 'Checklist check icon on page', fg: '--success', bg: '--bg', as: 'ui' },
   { use: 'Flow arrow / Cover bar on page', fg: '--accent-2', bg: '--bg', as: 'ui' },
   { use: 'Flow arrow / Cover bar on cards', fg: '--accent-2', bg: '--surface', as: 'ui' },
   { use: 'decorative border on page', fg: '--line', bg: '--bg', as: 'exempt' },
