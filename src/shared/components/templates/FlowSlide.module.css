@@ -1,9 +1,9 @@
-/* Steps flow left→right on the page background; the arrow stroke is --accent-2, a UI accent
+/* Steps flow left→right on the page background; the Icon atom arrow is tinted --accent-2, a UI accent
    (≥3:1, contrast row "Flow arrow / Cover bar on page"), not a text colour. The order is carried
    by the <ol>, never by the arrows. Narrow screens stack the steps top→down. */
 .steps { display: flex; align-items: center; gap: var(--gap-md); margin: 0; padding: 0; list-style: none; }
 .step { display: flex; align-items: center; gap: var(--gap-md); min-width: 0; }
-.arrow { flex: none; width: 1em; height: 1em; color: var(--accent-2); fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.arrow { flex: none; display: inline-flex; color: var(--accent-2); }
 
 @media (max-width: 48rem) {
   .steps { flex-direction: column; align-items: flex-start; }

@@ -1,4 +1,4 @@
-import { Heading, Stack, Text } from '@/shared/components/atoms'
+import { Heading, Icon, Stack, Text } from '@/shared/components/atoms'
 import { SlideFrame } from '@/shared/components/organisms'
 import s from './FlowSlide.module.css'
 import type { FlowData } from '@/shared/types/slide'
@@ -18,10 +18,7 @@ export function FlowSlide({ title, sub, steps }: FlowData) {
             <li key={i} className={s.step}>
               <Text>{step}</Text>
               {i < steps.length - 1 && (
-                <svg viewBox="0 0 24 24" aria-hidden="true" className={s.arrow}>
-                  <path d="M4 12h15" />
-                  <path d="M13.5 6.5 19 12l-5.5 5.5" />
-                </svg>
+                <span className={s.arrow}><Icon name="arrow" decorative /></span>
               )}
             </li>
           ))}

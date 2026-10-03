@@ -107,7 +107,7 @@ Checklist และ Flow เป็นสไลด์นิ่ง ไม่ใช
 | `Badge` | atom | ป้ายสั้น (ความหมายอยู่ที่ข้อความ ไม่ใช่สี) | `tone`: neutral / accent / new / hot / code |
 | `Code` | atom | โค้ดในบรรทัด | — |
 | `Kbd` | atom | ปุ่มคีย์บอร์ด | — |
-| `Icon` | atom | ไอคอนเส้นบาง ขนาด 1em ตามสีข้อความ | `name`: check / warning / bulb · ต้องระบุ `decorative` (ซ่อนจาก screen reader) หรือ `label` (ข้อความ) อย่างใดอย่างหนึ่ง |
+| `Icon` | atom | ไอคอนเส้นบาง ขนาด 1em ตามสีข้อความ | `name`: check / warning / bulb / arrow · ต้องระบุ `decorative` (ซ่อนจาก screen reader) หรือ `label` (ข้อความ) อย่างใดอย่างหนึ่ง |
 | `ProgressBar` | atom | ความคืบหน้า (`role="progressbar"`) | `value` 0–100, `label` |
 | `Divider` | atom | เส้นคั่น | — |
 | `Callout` | molecule | กล่องเน้น 1 ประเด็นบนพื้น `--surface` | `title` (ข้อความป้ายชื่อ) · `tone`: concept (bulb + ขอบม่วง) / remember (check + ขอบเขียว) / warning (warning + ขอบแดง); ไม่ระบุ = โทนกลางขอบม่วงซ้าย ไม่มีไอคอน |

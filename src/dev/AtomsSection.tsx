@@ -60,11 +60,12 @@ export function AtomsSection() {
       <Demo name="Code / Kbd">
         <Text>เมธอด <Code>GET</Code> · กด <Kbd>→</Kbd> เพื่อไปสไลด์ถัดไป</Text>
       </Demo>
-      <Demo name="Icon name=check | warning | bulb (decorative / labelled)">
+      <Demo name="Icon name=check | warning | bulb | arrow (decorative / labelled)">
         <div className={s.row}>
           <Icon name="check" decorative />
           <Icon name="warning" decorative />
           <Icon name="bulb" decorative />
+          <Icon name="arrow" decorative />
         </div>
         <div className={s.row}>
           <Icon name="check" label="สำเร็จ" />
