@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button } from '@/shared/components/atoms'
+import { Button, Stack } from '@/shared/components/atoms'
 import { Callout, Card, ChromeBar, CodeBlock, CountUp, NavDots, StatBlock, SwatchRow, ThemeToggle, TocItem } from '@/shared/components/molecules'
 import { TocList } from '@/shared/components/organisms'
 import { SeenContext } from '@/shared/hooks'
@@ -25,7 +25,14 @@ export function MoleculesSection() {
             { text: 'B', fg: '#e4e2da', bg: '#1c1d1f' },
           ]} />
         </Demo>
-        <Demo name="Callout"><Callout title="ควรรู้">ข้อความเน้นสั้นๆ หนึ่งประเด็นต่อกล่อง</Callout></Demo>
+        <Demo name="Callout (concept / remember / warning / ไม่ระบุ tone)">
+          <Stack>
+            <Callout tone="concept" title="แนวคิดหลัก">แนวคิดที่ต้องเข้าใจก่อนไปต่อ</Callout>
+            <Callout tone="remember" title="จดจำ">สรุปสั้นๆ ที่ควรจำจากสไลด์นี้</Callout>
+            <Callout tone="warning" title="ข้อควรระวัง">จุดที่ผู้เรียนมักทำผิด</Callout>
+            <Callout title="ควรรู้">ข้อความเน้นสั้นๆ หนึ่งประเด็นต่อกล่อง</Callout>
+          </Stack>
+        </Demo>
         <Demo name="CodeBlock">
           <CodeBlock language="http" code={'GET /index.html HTTP/1.1\nHost: example.com'} />
         </Demo>
