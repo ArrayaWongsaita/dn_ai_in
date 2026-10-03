@@ -7,3 +7,5 @@
 .styled .card { border: 1px solid var(--accent); border-radius: var(--radius); padding: var(--gap-sm); overflow-wrap: anywhere; }
 .styled .action { font: inherit; font-size: var(--fs-small); color: var(--bg); background: var(--accent); border: 1px solid var(--accent); border-radius: var(--radius-pill); padding: var(--gap-sm); cursor: pointer; }
 .styled .action:disabled { color: var(--muted); background: var(--bg); border-color: var(--line); cursor: default; }
+
+.answer { opacity: 0; visibility: hidden; }

@@ -39,6 +39,7 @@ export const sampleSlides: SlideData[] = [
   { type: 'llmflow', scene: 'overview', title: 'ตัวอย่าง LLMFlow · overview', sub: 'ข้อความรองของภาพวงจร (ข้อมูลสมมติ)' },
   { type: 'webflow', scene: 'http-200', title: 'ตัวอย่าง WebFlow · HTTP 200', sub: 'ขอหน้าบอร์ดงาน TaskFlow' },
   { type: 'webflow', scene: 'http-404', title: 'ตัวอย่าง WebFlow · HTTP 404', http: { method: 'GET', path: '/missing', status: 404, host: 'taskflow.local' } },
+  { type: 'webflow', scene: 'build-html', think: true, title: 'ลองคิด: หน้าเว็บมาจากอะไร' },
   { type: 'terminal', scene: 'pwd', command: 'pwd', title: 'ตัวอย่าง Terminal · pwd' },
   {
     type: 'terminal',

@@ -27,3 +27,5 @@ export const webFlowScenes = {
     http: { method: 'GET', path: '/missing', status: 404, statusText: 'Not Found', host: 'taskflow.local' },
   },
 } satisfies Record<WebFlowSceneId, WebFlowHttpSceneDefinition | WebFlowDiagramDefinition | WebFlowPageDefinition>
+
+export { revealThinkAnswer } from './page'

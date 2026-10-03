@@ -31,14 +31,17 @@ export interface WebFlowHttpData {
   status?: number
   host?: string
 }
-export interface WebflowData {
+interface WebflowBase {
   type: 'webflow'
-  scene: WebFlowSceneId
   title: string
   sub?: string
   src?: string
-  http?: WebFlowHttpData
 }
+/** Think scenes reveal answers on demand and cannot carry HTTP data. */
+export type WebflowData = WebflowBase & (
+  | { scene: Extract<WebFlowSceneId, 'build-html' | 'mpa'>; think: true; http?: never }
+  | { scene: WebFlowSceneId; think?: false; http?: WebFlowHttpData }
+)
 
 export interface TerminalData { type: 'terminal'; scene: string; command: string; title: string; sub?: string }
 

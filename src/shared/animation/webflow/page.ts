@@ -8,6 +8,13 @@ export interface WebFlowPageDefinition {
   build: (tl: gsap.core.Timeline) => void
 }
 
+/** A shared hold reveal for the board and its explanatory caption. */
+export function revealThinkAnswer(tl: gsap.core.Timeline) {
+  tl.addLabel('question', 0).fromTo('[data-el="think-answer"]', { autoAlpha: 0 }, {
+    autoAlpha: 1, duration: dur.base, ease: ease.out,
+  }).addLabel('answer')
+}
+
 function revealBoard(tl: gsap.core.Timeline) {
   tl.addLabel('start').fromTo('[data-el="board"]', { opacity: 0, yPercent: 5 }, {
     opacity: 1, yPercent: 0, duration: dur.base, ease: ease.out,

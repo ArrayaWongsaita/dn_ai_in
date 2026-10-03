@@ -40,6 +40,10 @@ const slides: SlideData[] = [
     src: 'HTTP Semantics · RFC 9110 §15.5.5 · https://www.rfc-editor.org/rfc/rfc9110.html#name-404-not-found',
   },
   {
+    type: 'webflow', scene: 'build-html', think: true,
+    title: 'ลองคิด: หน้าเว็บมาจากอะไร',
+  },
+  {
     type: 'webflow', scene: 'build-html',
     title: 'HTML · โครงของหน้าบอร์ดงาน',
     sub: 'หัวข้อ คอลัมน์ รายการงาน และปุ่ม คือส่วนประกอบของหน้าเว็บ\nตัวอย่าง TaskFlow ยังไม่มีหน้าตาจาก CSS และปุ่มยังย้ายงานไม่ได้',
