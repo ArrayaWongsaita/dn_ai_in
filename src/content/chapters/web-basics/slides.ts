@@ -66,6 +66,30 @@ const slides: SlideData[] = [
     { text: 'SPA', note: 'JavaScript สลับเนื้อหา\nheader เดิมคงอยู่ · อาจขอข้อมูลเพิ่ม', fg: 'var(--fg)', bg: 'var(--bg)' },
   ], src: 'MDN · SPA · https://developer.mozilla.org/en-US/docs/Glossary/SPA' },
   { type: 'webflow', scene: 'api-db', title: 'API + ฐานข้อมูล · ข้อมูลบอร์ดมาจากไหน', sub: 'หน้าเว็บขอข้อมูลผ่าน API บน server → server อ่านฐานข้อมูล → ส่ง JSON กลับ\nJavaScript นำข้อมูลมาแสดงบนบอร์ดงาน (ตัวอย่างสมมติ)', src: 'MDN · Client-server overview · https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview' },
+  {
+    type: 'statement',
+    title: 'Next.js · ผสม MPA และ SPA ได้',
+    sub: 'เปิดหน้าเว็บโดยขอ HTML จาก server ได้\nเมื่อกดลิงก์ภายในเว็บ ใช้ JavaScript เปลี่ยนเนื้อหาโดยไม่โหลดทั้งหน้าใหม่ได้',
+    src: 'Next.js · Linking and Navigating · https://nextjs.org/docs/app/getting-started/linking-and-navigating',
+  },
+  {
+    type: 'statement',
+    title: 'ลองดูเอง · request จริงในเบราว์เซอร์',
+    sub: 'เปิดเว็บ → กด F12 เพื่อเปิด DevTools → เลือกแท็บ Network → โหลดหน้าซ้ำ\nจะเห็นรายการ request ที่เบราว์เซอร์ส่ง เช่น ขอหน้าเว็บ รูปภาพ และข้อมูล',
+  },
+  {
+    type: 'compare',
+    title: 'ชีตสรุป · ศัพท์ที่เจอในบทนี้',
+    items: [
+      { text: 'client', note: 'ฝั่งที่ขอข้อมูล เช่น เบราว์เซอร์', fg: 'var(--fg)', bg: 'var(--bg)' },
+      { text: 'server', note: 'เครื่องที่รับคำขอแล้วตอบกลับ', fg: 'var(--fg)', bg: 'var(--bg)' },
+      { text: 'request / response', note: 'คำขอ / คำตอบพร้อม status code', fg: 'var(--fg)', bg: 'var(--bg)' },
+      { text: 'HTML / CSS / JS', note: 'โครง / หน้าตา / พฤติกรรม', fg: 'var(--fg)', bg: 'var(--bg)' },
+      { text: 'MPA', note: 'กดลิงก์แล้วโหลดทั้งหน้าใหม่', fg: 'var(--fg)', bg: 'var(--bg)' },
+      { text: 'SPA', note: 'โหลดหน้าเดียว แล้ว JS สลับเนื้อหา', fg: 'var(--fg)', bg: 'var(--bg)' },
+      { text: 'API', note: 'ช่องทางขอข้อมูล JSON จาก server', fg: 'var(--fg)', bg: 'var(--bg)' },
+    ],
+  },
 ]
 
 export default slides
